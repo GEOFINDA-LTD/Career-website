@@ -5,7 +5,6 @@ import { Mail, Phone, MapPin } from 'lucide-react'
 export default function ContactPage() {
   return (
     <>
-      <Header />
       <main>
         {/* Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
@@ -113,7 +112,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

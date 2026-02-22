@@ -1,5 +1,3 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { Zap, Users, TrendingUp, Award } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -7,7 +5,6 @@ import Image from 'next/image'
 export default function PartnershipPage() {
   return (
     <>
-      <Header />
       <main>
         {/* Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
@@ -186,7 +183,6 @@ export default function PartnershipPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

@@ -1,29 +1,17 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+
 import { Eye, Target, Heart, Zap } from 'lucide-react'
 
 export default function AboutPage() {
-  return (
-    <>
-      <Header />
-      <main>
-        {/* Hero */}
-        <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
-              About <span className="text-gradient-brand">GEOFINDA Tech Hub</span>
-            </h1>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Transforming careers through technology, mentorship, and real-world experience.
-            </p>
-          </div>
-        </section>
+  const reasons = [
+                { title: 'Expert Mentorship', description: 'Learn from professionals with real industry experience, not just online content.' },
+                { title: 'Real-World Projects', description: 'Build actual projects for your portfolio, not toy exercises.' },
+                { title: 'Career Support', description: 'Comprehensive guidance from application to job placement and beyond.' },
+                { title: 'Diverse Community', description: 'Learn alongside diverse peers in an inclusive, supportive environment.' },
+                { title: 'Proven Results', description: '95% of our graduates land meaningful tech roles within 6 months.' },
+                { title: 'Flexible Learning', description: 'Programs designed for people with different backgrounds and schedules.' }
+              ];
 
-        {/* Mission, Vision, Values */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
+  const missionsVision = [
                 {
                   icon: Eye,
                   title: 'Vision',
@@ -44,7 +32,35 @@ export default function AboutPage() {
                   title: 'Impact',
                   description: 'Over 500 graduates successfully launched in technology careers. 95% placement rate. Building the diverse tech workforce of tomorrow.'
                 }
-              ].map((item, index) => {
+              ];
+
+  const stats = [
+                { number: '500+', label: 'Graduates' },
+                { number: '95%', label: 'Job Placement' },
+                { number: '25+', label: 'Programs' },
+                { number: '50+', label: 'Industry Mentors' },
+                { number: '5', label: 'Tech Categories' }
+              ];
+  return (
+    <>
+      <main>
+        {/* Hero */}
+        <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
+              About <span className="text-gradient-brand">GEOFINDA Tech Hub</span>
+            </h1>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+              Transforming careers through technology, mentorship, and real-world experience.
+            </p>
+          </div>
+        </section>
+
+        {/* Mission, Vision, Values */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {missionsVision.map((item, index) => {
                 const Icon = item.icon
                 return (
                   <div key={index} className="text-center animate-float-in" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -119,13 +135,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-black text-center mb-12">By the Numbers</h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {[
-                { number: '500+', label: 'Graduates' },
-                { number: '95%', label: 'Job Placement' },
-                { number: '25+', label: 'Programs' },
-                { number: '50+', label: 'Industry Mentors' },
-                { number: '5', label: 'Tech Categories' }
-              ].map((stat, index) => (
+              {stats.map((stat, index) => (
                 <div key={index} className="text-center animate-float-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="text-5xl font-black text-primary mb-2">{stat.number}</div>
                   <div className="text-white/80">{stat.label}</div>
@@ -143,14 +153,7 @@ export default function AboutPage() {
             </h2>
 
             <div className="space-y-6">
-              {[
-                { title: 'Expert Mentorship', description: 'Learn from professionals with real industry experience, not just online content.' },
-                { title: 'Real-World Projects', description: 'Build actual projects for your portfolio, not toy exercises.' },
-                { title: 'Career Support', description: 'Comprehensive guidance from application to job placement and beyond.' },
-                { title: 'Diverse Community', description: 'Learn alongside diverse peers in an inclusive, supportive environment.' },
-                { title: 'Proven Results', description: '95% of our graduates land meaningful tech roles within 6 months.' },
-                { title: 'Flexible Learning', description: 'Programs designed for people with different backgrounds and schedules.' }
-              ].map((item, index) => (
+              {reasons.map((item, index) => (
                 <div key={index} className="flex items-start gap-4 pb-6 border-b border-gray-200 last:border-0 animate-float-in" style={{ animationDelay: `${index * 0.05}s` }}>
                   <div className="w-2 h-2 bg-gradient-brand rounded-full mt-2 flex-shrink-0" />
                   <div>
@@ -176,7 +179,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

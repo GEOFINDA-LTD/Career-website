@@ -1,5 +1,4 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+
 import { FileText, CheckCircle, Users, Code, Briefcase, Award } from 'lucide-react'
 import Link from 'next/link'
 
@@ -78,7 +77,6 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <>
-      <Header />
       <main>
         {/* Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
@@ -311,7 +309,6 @@ export default function HowItWorksPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }
