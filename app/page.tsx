@@ -1,5 +1,4 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+
 import { HomeHero } from '@/components/home-hero'
 import { HomePillars } from '@/components/home-pillars'
 import { HomePrograms } from '@/components/home-programs'
@@ -9,7 +8,6 @@ import { HomeCTA } from '@/components/home-cta'
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <HomeHero />
         <HomePillars />
@@ -17,7 +15,6 @@ export default function Home() {
         <HomeTestimonials />
         <HomeCTA />
       </main>
-      <Footer />
     </>
   )
 }
