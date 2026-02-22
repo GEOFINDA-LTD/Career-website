@@ -21,7 +21,6 @@ const timeline = [
 export default function ForParentsPage() {
   return (
     <>
-      <Header />
       <main>
         {/* Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
@@ -166,7 +165,6 @@ export default function ForParentsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

@@ -26,7 +26,6 @@ export default function ProgramsPage() {
 
   return (
     <>
-      <Header />
       <main>
         {/* Page Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
@@ -134,7 +133,6 @@ export default function ProgramsPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

@@ -98,7 +98,6 @@ export default function ApplyPage() {
   if (submitted) {
     return (
       <>
-        <Header />
         <main>
           <section className="min-h-[60vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 gradient-hero">
             <div className="max-w-2xl mx-auto text-center text-white animate-fade-in-up">
@@ -388,7 +387,6 @@ export default function ApplyPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

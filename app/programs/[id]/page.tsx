@@ -23,7 +23,6 @@ export default function ProgramDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="relative h-96 gradient-hero overflow-hidden">
@@ -215,7 +214,6 @@ export default function ProgramDetailPage({ params }: PageProps) {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }

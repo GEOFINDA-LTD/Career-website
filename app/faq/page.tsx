@@ -53,7 +53,6 @@ const faqCategories = [
 export default function FAQPage() {
   return (
     <>
-      <Header />
       <main>
         {/* Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
@@ -117,7 +116,6 @@ export default function FAQPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   )
 }
