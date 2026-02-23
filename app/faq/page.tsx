@@ -1,54 +1,108 @@
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import Link from 'next/link'
+import Link from "next/link";
 
 const faqCategories = [
   {
-    title: 'General Questions',
+    title: "General Questions",
     faqs: [
-      { q: 'What is GEOFINDA Tech Hub?', a: 'GEOFINDA Tech Hub is an innovative tech career platform offering 25+ programs with mentorship, real-world projects, and career support to help you launch a successful tech career.' },
-      { q: 'Who is GEOFINDA Tech Hub for?', a: 'We welcome anyone passionate about technology - students, career changers, and professionals looking to upskill. We have programs for all levels from beginner to advanced.' },
-      { q: 'How is GEOFINDA Tech Hub different from other bootcamps?', a: 'Our unique approach combines structured mentorship from industry professionals, hands-on real-world projects, and comprehensive career support. You\'re not just learning - you\'re building connections and experience.' }
-    ]
+      {
+        q: "What is GEOFINDA Tech Hub?",
+        a: "GEOFINDA Tech Hub is a tech solutions and software development company based in Kigali, Rwanda. Through our Career Portal, we offer structured academic internship tracks with mentorship, real-world projects, and career support for aspiring technology professionals.",
+      },
+      {
+        q: "Who is GEOFINDA Tech Hub for?",
+        a: "We welcome high school students, university/college students, and early-career professionals in Rwanda who are passionate about building a career in technology. We have internship tracks for all levels from Foundation to Advanced.",
+      },
+      {
+        q: "How is GEOFINDA Tech Hub different from bootcamps?",
+        a: "Our approach combines structured mentorship from industry professionals, real-world project execution, and internship placements with partner companies. You're not just learning — you're working in industry-simulated environments and building real portfolio work.",
+      },
+    ],
   },
   {
-    title: 'Programs & Enrollment',
+    title: "Internship Tracks & Enrollment",
     faqs: [
-      { q: 'How many programs do you offer?', a: 'We offer 25+ carefully designed programs across 5 major categories: Web Development, Mobile Development, Data & Analytics, Cloud & DevOps, and AI & Emerging Tech.' },
-      { q: 'How long are the programs?', a: 'All our programs are designed to be completed in 8 weeks. You\'ll typically spend 20-30 hours per week on coursework and projects.' },
-      { q: 'Do I need prior experience?', a: 'While some programs require basics, we have beginner-friendly options. Our application assessment helps identify the right starting point for you.' },
-      { q: 'What\'s the application process?', a: 'Apply online, complete a technical assessment, and our team will review your application. We aim to notify you within 2-3 business days.' },
-      { q: 'When can I start?', a: 'Programs start regularly throughout the year. You can choose your preferred start date during enrollment. Check our programs page for upcoming cohorts.' }
-    ]
+      {
+        q: "How many internship tracks do you offer?",
+        a: "We offer 30+ internship tracks across 5 technology domains: Core Software & Engineering, Infrastructure & Systems, Electronics & Embedded Systems, AI & Emerging Technologies, and Creative & Digital Technology.",
+      },
+      {
+        q: "How long are the internship tracks?",
+        a: "Most tracks run for 10-14 weeks, with an average of 12 weeks. You'll typically spend 20-30 hours per week on coursework, projects, and partner placement activities.",
+      },
+      {
+        q: "Do I need prior experience?",
+        a: "While some tracks require basics, we have Foundation-level tracks designed for beginners. Our application assessment helps identify the right starting point for you.",
+      },
+      {
+        q: "What's the application process?",
+        a: "Apply online, complete an assessment, and our team will review your application. We aim to notify you within 2-3 business days.",
+      },
+      {
+        q: "When can I start?",
+        a: "Internship tracks start on a seasonal basis. Check our Career Portal for upcoming cohorts and available start dates.",
+      },
+    ],
   },
   {
-    title: 'Cost & Logistics',
+    title: "Cost & Logistics",
     faqs: [
-      { q: 'How much do programs cost?', a: 'Pricing varies by program and includes mentorship, curriculum, and career support. Contact us for specific pricing and available payment plans.' },
-      { q: 'Is there financial aid?', a: 'Yes, we offer scholarships and flexible payment plans. We believe cost shouldn\'t be a barrier to education. Reach out to discuss options.' },
-      { q: 'Can I work while enrolled?', a: 'Absolutely! Many students work part-time or have other commitments. Our flexible scheduling accommodates various lifestyles.' },
-      { q: 'Is the program online or in-person?', a: 'Most programs are offered online with live sessions and community interaction. This allows flexibility while maintaining real-time engagement with instructors and peers.' }
-    ]
+      {
+        q: "How much do internship tracks cost?",
+        a: "Pricing varies by track and includes mentorship, curriculum, and career support. Contact us for specific pricing and available payment arrangements.",
+      },
+      {
+        q: "Can I study while enrolled?",
+        a: "Absolutely! Many of our interns are full-time high school or university students. Our scheduling is designed to complement academic commitments.",
+      },
+      {
+        q: "Is the internship online or in-person?",
+        a: "Most tracks combine online learning with on-site components, especially during partner placement phases. The format depends on the specific track and partner.",
+      },
+      {
+        q: "Where is GEOFINDA Tech Hub located?",
+        a: "We are based in Nyarugenge, Kigali, Rwanda. Partner placements may be at different locations depending on the partner company.",
+      },
+    ],
   },
   {
-    title: 'Mentorship & Support',
+    title: "Mentorship & Partners",
     faqs: [
-      { q: 'What is the mentorship like?', a: 'You\'ll be paired with an experienced professional for dedicated 1-on-1 guidance. Weekly sessions cover technical skills, career planning, and professional development.' },
-      { q: 'How are mentors selected?', a: 'Our mentors are experienced professionals from leading tech companies with proven teaching ability and genuine commitment to student success.' },
-      { q: 'What happens after I complete the program?', a: 'Our career support team helps with interview prep, resume review, job search strategy, and connections with hiring partners. We support you beyond graduation.' },
-      { q: 'Is there a community or alumni network?', a: 'Yes! You\'ll join an active community of learners and graduates. Many lifelong professional connections are made through GEOFINDA Tech Hub.' }
-    ]
+      {
+        q: "What is the mentorship like?",
+        a: "You'll be paired with an experienced professional for dedicated 1-on-1 guidance. Regular sessions cover technical skills, career planning, and professional development throughout your internship.",
+      },
+      {
+        q: "What are internship partners?",
+        a: "We partner with established companies in specific technology domains to provide real-world internship placements. Partners change by season to give interns diverse industry exposure. Visit our Partners page to see current season partners.",
+      },
+      {
+        q: "Will I work at a partner company?",
+        a: "Yes — during the partner placement phase of your internship, you'll gain hands-on experience at one of our seasonal partner companies, working in real professional environments.",
+      },
+      {
+        q: "Who is the current internship partner?",
+        a: "Partners change by season. Visit our Partners page for the most up-to-date list of active partners for the current internship season.",
+      },
+    ],
   },
   {
-    title: 'Success & Outcomes',
+    title: "Outcomes & Career",
     faqs: [
-      { q: 'What\'s your success rate?', a: 'Our graduates have a 95% success rate in landing tech roles within 6 months. But success is defined differently for everyone - we support your specific goals.' },
-      { q: 'Do you guarantee a job?', a: 'We don\'t guarantee jobs, but we provide placement support, interview coaching, and industry connections to help you succeed. Your effort + our support = opportunity.' },
-      { q: 'What companies hire GEOFINDA graduates?', a: 'Our graduates work at leading tech companies, startups, and established organizations. From Fortune 500 to innovative startups - everywhere needs great tech talent.' },
-      { q: 'How much can I expect to earn?', a: 'Salaries vary widely based on role, location, and experience. Many of our graduates see significant salary growth within their first year. Discuss with our team for specific market data.' }
-    ]
-  }
-]
+      {
+        q: "What will I have after completing an internship track?",
+        a: "You'll have a portfolio of real-world projects, professional experience from partner placements, a capstone project, structured mentorship experience, and career support — all of which prepare you for employment in technology.",
+      },
+      {
+        q: "Do you guarantee a job?",
+        a: "We don't guarantee jobs. We provide portfolio-quality projects, partner placement experience, interview preparation, and career guidance. Your effort combined with our support creates opportunity.",
+      },
+      {
+        q: "What levels of internship tracks are available?",
+        a: "We offer Foundation (beginner-friendly), Intermediate (some prior knowledge), and Advanced (experienced learners) level tracks across all five technology domains.",
+      },
+    ],
+  },
+];
 
 export default function FAQPage() {
   return (
@@ -61,7 +115,9 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-white/90">
-              Find answers to common questions about <span className="text-gradient-brand">GEOFINDA Tech Hub</span>, our programs, and the application process.
+              Find answers to common questions about{" "}
+              <span className="text-gradient-brand">GEOFINDA Tech Hub</span>,
+              our internship tracks, and the application process.
             </p>
           </div>
         </section>
@@ -70,7 +126,11 @@ export default function FAQPage() {
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto space-y-16">
             {faqCategories.map((category, catIndex) => (
-              <div key={catIndex} className="animate-fade-in-up" style={{ animationDelay: `${catIndex * 0.1}s` }}>
+              <div
+                key={catIndex}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${catIndex * 0.1}s` }}
+              >
                 <h2 className="text-3xl font-black text-gray-900 mb-8 pb-4 border-b-4 border-primary">
                   {category.title}
                 </h2>
@@ -117,5 +177,5 @@ export default function FAQPage() {
         </section>
       </main>
     </>
-  )
+  );
 }

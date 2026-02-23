@@ -1,78 +1,104 @@
-
-import { FileText, CheckCircle, Users, Code, Briefcase, Award } from 'lucide-react'
-import Link from 'next/link'
+import {
+  FileText,
+  CheckCircle,
+  Users,
+  Code,
+  Briefcase,
+  Award,
+  Rocket,
+} from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
     number: 1,
-    title: 'Application & Assessment',
+    title: "Application & Assessment",
     icon: FileText,
-    description: 'Submit your application and complete our technical assessment to showcase your current level and learning potential.',
+    description:
+      "Submit your application and complete our assessment to showcase your current level, interests, and learning potential.",
     details: [
-      'Online application form',
-      'Technical skills assessment',
-      'Motivation & fit evaluation'
-    ]
+      "Online application form",
+      "Skills & interest assessment",
+      "Motivation & fit evaluation",
+    ],
   },
   {
     number: 2,
-    title: 'Program Selection',
+    title: "Track Selection",
     icon: CheckCircle,
-    description: 'Choose from our 25+ carefully designed programs across five technology areas based on your interests and career goals.',
+    description:
+      "Choose from our 30+ internship tracks across five technology domains based on your interests and career direction.",
     details: [
-      'Browse all programs',
-      'Get personalized recommendations',
-      'Confirm your choice'
-    ]
+      "Browse all internship tracks",
+      "Get personalized recommendations",
+      "Confirm your track choice",
+    ],
   },
   {
     number: 3,
-    title: 'Mentor Matching',
+    title: "Mentor Matching",
     icon: Users,
-    description: 'Get paired with an experienced industry professional who will guide you throughout your learning journey.',
+    description:
+      "Get paired with an experienced industry professional who will guide you throughout your internship journey.",
     details: [
-      'Mentor profile review',
-      'Initial meeting & goal setting',
-      'Weekly 1-on-1 sessions'
-    ]
+      "Mentor profile review",
+      "Initial meeting & goal setting",
+      "Regular 1-on-1 sessions",
+    ],
   },
   {
     number: 4,
-    title: 'Intensive Learning Phase 1',
+    title: "Foundations Phase",
     icon: Code,
-    description: 'Dive deep into fundamentals. Master core concepts through structured curriculum and hands-on coding projects.',
+    description:
+      "Dive deep into fundamentals. Master core concepts through structured curriculum and hands-on exercises.",
     details: [
-      'Live interactive sessions',
-      'Self-paced learning modules',
-      'Daily coding challenges',
-      'Peer collaboration'
-    ]
+      "Live interactive sessions",
+      "Self-paced learning modules",
+      "Daily challenges",
+      "Peer collaboration",
+    ],
   },
   {
     number: 5,
-    title: 'Real-World Projects Phase 2',
+    title: "Real-World Projects",
     icon: Briefcase,
-    description: 'Apply your knowledge to projects that mirror real company environments. Build your portfolio with tangible work.',
+    description:
+      "Apply your knowledge to projects that mirror real company environments. Build your portfolio with tangible, production-quality work.",
     details: [
-      'Industry-relevant projects',
-      'Team-based development',
-      'Code review & feedback',
-      'Performance optimization'
-    ]
+      "Industry-relevant projects",
+      "Team-based development",
+      "Code review & feedback",
+      "Performance optimization",
+    ],
   },
   {
     number: 6,
-    title: 'Capstone & Placement',
-    icon: Award,
-    description: 'Complete your capstone project, interview preparation, and career support to launch your tech career.',
+    title: "Partner Placement",
+    icon: Rocket,
+    description:
+      "Gain hands-on experience with one of our seasonal internship partners, working in a real professional environment.",
     details: [
-      'Final capstone project',
-      'Interview preparation',
-      'Resume & portfolio reviews',
-      'Job placement assistance'
-    ]
-  }
-]
+      "On-site or hybrid placement",
+      "Real team integration",
+      "Industry mentorship",
+      "Professional workflow experience",
+    ],
+  },
+  {
+    number: 7,
+    title: "Capstone & Career Launch",
+    icon: Award,
+    description:
+      "Complete your capstone project, finalize your portfolio, and receive career support to launch your technology career.",
+    details: [
+      "Final capstone project",
+      "Portfolio completion",
+      "Interview preparation",
+      "Career guidance & support",
+    ],
+  },
+];
 
 export default function HowItWorksPage() {
   return (
@@ -82,10 +108,13 @@ export default function HowItWorksPage() {
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-              How GEOFINDA <span className="text-gradient-brand">Works</span>
+              How GEOFINDA Tech Hub{" "}
+              <span className="text-gradient-brand">Works</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Our proven 6-phase journey transforms aspirations into career success. From application to job placement, we guide every step.
+              Our 7-phase internship journey takes you from application to
+              career launch. From foundations to partner placement, we guide
+              every step.
             </p>
           </div>
         </section>
@@ -95,14 +124,20 @@ export default function HowItWorksPage() {
           <div className="max-w-6xl mx-auto">
             <div className="space-y-12">
               {steps.map((step, index) => {
-                const Icon = step.icon
-                const isEven = index % 2 === 0
+                const Icon = step.icon;
+                const isEven = index % 2 === 0;
 
                 return (
-                  <div key={step.number} className="animate-float-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className={`grid lg:grid-cols-2 gap-8 items-center ${isEven ? '' : 'lg:grid-cols-2'}`}>
+                  <div
+                    key={step.number}
+                    className="animate-float-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div
+                      className={`grid lg:grid-cols-2 gap-8 items-center ${isEven ? "" : "lg:grid-cols-2"}`}
+                    >
                       {/* Content - Left on odd, right on even */}
-                      <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
+                      <div className={isEven ? "lg:order-1" : "lg:order-2"}>
                         <div className="flex items-start gap-4">
                           <div className="flex-shrink-0">
                             <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-gradient-brand">
@@ -111,7 +146,7 @@ export default function HowItWorksPage() {
                           </div>
                           <div>
                             <div className="text-sm font-bold text-primary mb-2">
-                              Step {step.number} of {steps.length}
+                              Phase {step.number} of {steps.length}
                             </div>
                             <h3 className="text-2xl font-black text-gray-900 mb-3">
                               {step.title}
@@ -121,7 +156,10 @@ export default function HowItWorksPage() {
                             </p>
                             <ul className="space-y-2">
                               {step.details.map((detail) => (
-                                <li key={detail} className="flex items-center gap-2 text-gray-700">
+                                <li
+                                  key={detail}
+                                  className="flex items-center gap-2 text-gray-700"
+                                >
                                   <div className="w-2 h-2 bg-gradient-to-r from-[#4CC3E0] to-[#A6D93A] rounded-full flex-shrink-0" />
                                   <span>{detail}</span>
                                 </li>
@@ -132,7 +170,7 @@ export default function HowItWorksPage() {
                       </div>
 
                       {/* Visual - Right on odd, left on even */}
-                      <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
+                      <div className={isEven ? "lg:order-2" : "lg:order-1"}>
                         <div className="gradient-brand rounded-lg p-8 border-2 border-white/30 h-48 flex items-center justify-center">
                           <div className="text-center">
                             <div className="text-6xl font-black text-white/40 mb-2">
@@ -153,7 +191,7 @@ export default function HowItWorksPage() {
                       </div>
                     )}
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -163,20 +201,26 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-black text-center mb-12">
-              What Makes GEOFINDA Different
+              What Makes GEOFINDA Tech Hub Different
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="animate-float-in" style={{ animationDelay: '0s' }}>
+              <div
+                className="animate-float-in"
+                style={{ animationDelay: "0s" }}
+              >
                 <div className="bg-gray-800 p-8 rounded-lg border border-gray-700 h-full">
-                  <h3 className="text-xl font-bold mb-4">Structured Mentorship</h3>
+                  <h3 className="text-xl font-bold mb-4">
+                    Structured Mentorship
+                  </h3>
                   <p className="text-gray-300 mb-4">
-                    Paired with experienced professionals for dedicated guidance, not just lectures and videos.
+                    Paired with experienced professionals for dedicated
+                    guidance, not just lectures and videos.
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full" />
-                      Weekly 1-on-1 sessions
+                      Regular 1-on-1 sessions
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full" />
@@ -190,11 +234,17 @@ export default function HowItWorksPage() {
                 </div>
               </div>
 
-              <div className="animate-float-in" style={{ animationDelay: '0.1s' }}>
+              <div
+                className="animate-float-in"
+                style={{ animationDelay: "0.1s" }}
+              >
                 <div className="bg-gray-800 p-8 rounded-lg border border-gray-700 h-full">
-                  <h3 className="text-xl font-bold mb-4">Real-World Projects</h3>
+                  <h3 className="text-xl font-bold mb-4">
+                    Real-World Projects
+                  </h3>
                   <p className="text-gray-300 mb-4">
-                    Work on actual projects that mirror professional environments, not theoretical exercises.
+                    Work on actual projects that mirror professional
+                    environments, not theoretical exercises.
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
@@ -213,24 +263,28 @@ export default function HowItWorksPage() {
                 </div>
               </div>
 
-              <div className="animate-float-in" style={{ animationDelay: '0.2s' }}>
+              <div
+                className="animate-float-in"
+                style={{ animationDelay: "0.2s" }}
+              >
                 <div className="bg-gray-800 p-8 rounded-lg border border-gray-700 h-full">
-                  <h3 className="text-xl font-bold mb-4">Career Support</h3>
+                  <h3 className="text-xl font-bold mb-4">Partner Placements</h3>
                   <p className="text-gray-300 mb-4">
-                    Comprehensive support from interview prep to job placement, not just training.
+                    Gain hands-on experience at real companies through our
+                    seasonal internship partner network.
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full" />
-                      Interview coaching
+                      Real work environments
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full" />
-                      Job placement help
+                      Industry exposure
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-primary rounded-full" />
-                      Salary negotiation
+                      Professional networking
                     </li>
                   </ul>
                 </div>
@@ -249,23 +303,26 @@ export default function HowItWorksPage() {
             <div className="space-y-4">
               {[
                 {
-                  q: 'How long is each program?',
-                  a: 'Most programs run for 10-14 weeks, with an average of 12 weeks. You\'ll spend 20-30 hours per week on coursework and projects.'
+                  q: "How long are the internship tracks?",
+                  a: "Most internship tracks run for 10-14 weeks, with an average of 12 weeks. You'll spend 20-30 hours per week on coursework and projects.",
                 },
                 {
-                  q: 'Do I need prior experience?',
-                  a: 'While some programs require basics, we have beginner-friendly options. Our application assessment helps place you in the right program.'
+                  q: "Do I need prior experience?",
+                  a: "While some tracks require basics, we have Foundation-level options. Our application assessment helps place you in the right track.",
                 },
                 {
-                  q: 'Is this a job guarantee?',
-                  a: 'We don\'t guarantee jobs, but our 95% success rate reflects our commitment to your career. We provide placement support, interview coaching, and career guidance.'
+                  q: "Who can apply?",
+                  a: "High school students, university/college students, and early-career professionals in Rwanda. We welcome anyone passionate about building a career in technology.",
                 },
                 {
-                  q: 'Can I work while enrolled?',
-                  a: 'Yes! Our programs are flexible. Many students work part-time or have other commitments. We\'ll work with you on scheduling.'
-                }
+                  q: "Can I study while enrolled?",
+                  a: "Yes! Our internship tracks are designed to complement academic schedules. Many of our interns are full-time students.",
+                },
               ].map((faq, index) => (
-                <details key={index} className="group border border-gray-300 rounded-lg overflow-hidden hover:border-primary transition-colors">
+                <details
+                  key={index}
+                  className="group border border-gray-300 rounded-lg overflow-hidden hover:border-primary transition-colors"
+                >
                   <summary className="cursor-pointer p-6 font-bold text-gray-900 flex items-center justify-between hover:bg-gray-50">
                     <span>{faq.q}</span>
                     <span className="text-primary group-open:rotate-180 transition-transform">
@@ -295,14 +352,14 @@ export default function HowItWorksPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-brand">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-black mb-4">
-              Ready to Start Your Journey?
+              Ready to Start Your Internship?
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Apply now and take the first step towards your dream tech career.
+              Apply now and take the first step towards your tech career.
             </p>
             <Link
               href="/apply"
-              className="inline-block px-8 py-4 bg-white text-gray-900 font-bold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200"
+              className="inline-block px-8 py-4 bg-[#A6D93A] text-white font-bold rounded-lg hover:bg-[#61BA49] hover:shadow-lg hover:scale-105 transition-all duration-200"
             >
               Apply Now
             </Link>
@@ -310,5 +367,5 @@ export default function HowItWorksPage() {
         </section>
       </main>
     </>
-  )
+  );
 }

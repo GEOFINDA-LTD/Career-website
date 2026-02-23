@@ -1,24 +1,31 @@
-'use client'
+"use client";
 
-import { programs, categoryLabels } from '@/lib/programs-data'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import Image from 'next/image'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { ArrowRight, Clock, Users, BookOpen, Target, Code, Zap } from 'lucide-react'
+import { programs, categoryLabels } from "@/lib/programs-data";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  ArrowRight,
+  Clock,
+  Users,
+  BookOpen,
+  Target,
+  Code,
+  Zap,
+  Layers,
+} from "lucide-react";
 
 interface PageProps {
   params: {
-    id: string
-  }
+    id: string;
+  };
 }
 
 export default function ProgramDetailPage({ params }: PageProps) {
-  const program = programs.find(p => p.id === params.id)
+  const program = programs.find((p) => p.id === params.id);
 
   if (!program) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -33,7 +40,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
             className="object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0F6FA3]/80 to-transparent" />
-          
+
           <div className="absolute inset-0 flex flex-col justify-end">
             <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-8">
               <span className="inline-block mb-4 px-4 py-2 bg-primary text-white font-bold rounded-full text-sm">
@@ -63,7 +70,9 @@ export default function ProgramDetailPage({ params }: PageProps) {
             <div className="lg:col-span-2">
               {/* Overview */}
               <section className="mb-12">
-                <h2 className="text-3xl font-black text-gray-900 mb-4">Program Overview</h2>
+                <h2 className="text-3xl font-black text-gray-900 mb-4">
+                  Track Overview
+                </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   {program.description}
                 </p>
@@ -77,9 +86,14 @@ export default function ProgramDetailPage({ params }: PageProps) {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {program.skills.map((skill) => (
-                    <div key={skill} className="p-4 bg-gradient-to-r from-[#4CC3E0]/10 to-[#A6D93A]/10 rounded-lg border border-[#4CC3E0]/30 flex items-center gap-3 hover:border-[#4CC3E0]/60 transition-colors">
+                    <div
+                      key={skill}
+                      className="p-4 bg-gradient-to-r from-[#4CC3E0]/10 to-[#A6D93A]/10 rounded-lg border border-[#4CC3E0]/30 flex items-center gap-3 hover:border-[#4CC3E0]/60 transition-colors"
+                    >
                       <div className="w-2 h-2 bg-gradient-to-r from-[#4CC3E0] to-[#A6D93A] rounded-full flex-shrink-0" />
-                      <span className="font-semibold text-gray-900">{skill}</span>
+                      <span className="font-semibold text-gray-900">
+                        {skill}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -121,6 +135,27 @@ export default function ProgramDetailPage({ params }: PageProps) {
                 </ul>
               </section>
 
+              {/* Project Exposure */}
+              <section className="mb-12">
+                <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-2">
+                  <Layers className="w-6 h-6 text-primary" />
+                  Project Exposure
+                </h3>
+                <div className="grid md:grid-cols-1 gap-3">
+                  {program.projectExposure.map((project) => (
+                    <div
+                      key={project}
+                      className="p-4 bg-gradient-to-r from-[#0F6FA3]/10 to-[#4CC3E0]/10 rounded-lg border border-[#0F6FA3]/20 flex items-center gap-3 hover:border-[#0F6FA3]/50 transition-colors"
+                    >
+                      <div className="w-2 h-2 bg-gradient-to-r from-[#0F6FA3] to-[#4CC3E0] rounded-full flex-shrink-0" />
+                      <span className="font-semibold text-gray-900">
+                        {project}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
               {/* Candidate Profile */}
               <section>
                 <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-2">
@@ -129,7 +164,10 @@ export default function ProgramDetailPage({ params }: PageProps) {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {program.candidateProfile.map((profile) => (
-                    <div key={profile} className="p-4 bg-gradient-to-r from-[#A6D93A]/10 to-[#0E6B2E]/10 rounded-lg border border-[#A6D93A]/30 hover:border-[#A6D93A] transition-colors">
+                    <div
+                      key={profile}
+                      className="p-4 bg-gradient-to-r from-[#A6D93A]/10 to-[#0E6B2E]/10 rounded-lg border border-[#A6D93A]/30 hover:border-[#A6D93A] transition-colors"
+                    >
                       <p className="font-semibold text-gray-900">{profile}</p>
                     </div>
                   ))}
@@ -141,9 +179,10 @@ export default function ProgramDetailPage({ params }: PageProps) {
             <div className="lg:col-span-1">
               {/* CTA Card */}
               <div className="sticky top-24 bg-gradient-to-br from-primary-blue to-primary-green rounded-lg p-8 text-white shadow-xl">
-                <h4 className="text-2xl font-black mb-2">Ready to Enroll?</h4>
+                <h4 className="text-2xl font-black mb-2">Ready to Apply?</h4>
                 <p className="text-white/90 mb-6">
-                  Start your journey in {program.title} today with expert mentorship and hands-on learning.
+                  Start your internship in {program.title} today with expert
+                  mentorship and hands-on learning.
                 </p>
                 <Link
                   href={`/apply?program=${program.id}`}
@@ -163,21 +202,35 @@ export default function ProgramDetailPage({ params }: PageProps) {
               <div className="mt-8 space-y-6">
                 {/* Duration */}
                 <div className="bg-gradient-to-br from-[#4CC3E0]/10 to-[#1B5F7F]/10 p-6 rounded-lg border border-[#4CC3E0]/20">
-                  <div className="text-sm font-bold text-[#0F6FA3] mb-2">Duration</div>
-                  <div className="text-2xl font-black text-gray-900">{program.duration}</div>
+                  <div className="text-sm font-bold text-[#0F6FA3] mb-2">
+                    Duration
+                  </div>
+                  <div className="text-2xl font-black text-gray-900">
+                    {program.duration}
+                  </div>
                 </div>
 
                 {/* Level */}
                 <div className="bg-gradient-to-br from-[#A6D93A]/10 to-[#0E6B2E]/10 p-6 rounded-lg border border-[#A6D93A]/20">
-                  <div className="text-sm font-bold text-[#0E6B2E] mb-2">Level</div>
-                  <div className="text-xl font-bold text-gray-900">{program.level}</div>
+                  <div className="text-sm font-bold text-[#0E6B2E] mb-2">
+                    Level
+                  </div>
+                  <div className="text-xl font-bold text-gray-900">
+                    {program.level}
+                  </div>
                 </div>
 
                 {/* Skills Count */}
                 <div className="bg-gradient-to-br from-[#0F6FA3]/10 to-[#4CC3E0]/10 p-6 rounded-lg border border-[#0F6FA3]/20">
-                  <div className="text-sm font-bold text-[#0F6FA3] mb-2">Skills</div>
-                  <div className="text-2xl font-black text-gray-900">{program.skills.length}</div>
-                  <div className="text-xs text-gray-600 mt-1">Skills to master</div>
+                  <div className="text-sm font-bold text-[#0F6FA3] mb-2">
+                    Skills
+                  </div>
+                  <div className="text-2xl font-black text-gray-900">
+                    {program.skills.length}
+                  </div>
+                  <div className="text-xs text-gray-600 mt-1">
+                    Skills to master
+                  </div>
                 </div>
               </div>
             </div>
@@ -188,13 +241,15 @@ export default function ProgramDetailPage({ params }: PageProps) {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#4CC3E0]/5 to-[#A6D93A]/5">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-black text-gray-900 mb-8">
-              Other Programs in {categoryLabels[program.category]}
+              Other Internship Tracks in {categoryLabels[program.category]}
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {programs
-                .filter(p => p.category === program.category && p.id !== program.id)
+                .filter(
+                  (p) => p.category === program.category && p.id !== program.id,
+                )
                 .slice(0, 3)
-                .map(related => (
+                .map((related) => (
                   <Link
                     key={related.id}
                     href={`/programs/${related.id}`}
@@ -203,9 +258,13 @@ export default function ProgramDetailPage({ params }: PageProps) {
                     <h4 className="font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
                       {related.title}
                     </h4>
-                    <p className="text-sm text-gray-600 mb-4">{related.shortDescription}</p>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {related.shortDescription}
+                    </p>
                     <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                      <span className="text-xs font-semibold text-gray-600">{related.duration}</span>
+                      <span className="text-xs font-semibold text-gray-600">
+                        {related.duration}
+                      </span>
                       <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
@@ -215,5 +274,5 @@ export default function ProgramDetailPage({ params }: PageProps) {
         </section>
       </main>
     </>
-  )
+  );
 }

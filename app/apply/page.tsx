@@ -1,99 +1,107 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { programs } from '@/lib/programs-data'
-import Link from 'next/link'
+import { useState } from "react";
+import { programs } from "@/lib/programs-data";
+import Link from "next/link";
 
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    program: '',
-    background: '',
-    motivation: '',
-    goals: '',
-    technicalExperience: '',
-    desiredStartDate: '',
-    availability: 'flexible',
-    terms: false
-  })
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    program: "",
+    background: "",
+    motivation: "",
+    goals: "",
+    technicalExperience: "",
+    desiredStartDate: "",
+    availability: "flexible",
+    terms: false,
+  });
 
-  const [submitted, setSubmitted] = useState(false)
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target
-    const checked = type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
+    const { name, value, type } = e.target;
+    const checked =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }))
+      [name]: type === "checkbox" ? checked : value,
+    }));
 
     // Clear error for this field
     if (errors[name]) {
-      setErrors(prev => {
-        const newErrors = { ...prev }
-        delete newErrors[name]
-        return newErrors
-      })
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
     }
-  }
+  };
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {}
+    const newErrors: Record<string, string> = {};
 
-    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required'
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required'
-    if (!formData.email.trim() || !formData.email.includes('@')) newErrors.email = 'Valid email is required'
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required'
-    if (!formData.program) newErrors.program = 'Please select a program'
-    if (!formData.motivation.trim()) newErrors.motivation = 'Please tell us your motivation'
-    if (!formData.goals.trim()) newErrors.goals = 'Please share your career goals'
-    if (!formData.terms) newErrors.terms = 'You must agree to the terms'
+    if (!formData.firstName.trim())
+      newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.email.trim() || !formData.email.includes("@"))
+      newErrors.email = "Valid email is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.program)
+      newErrors.program = "Please select an internship track";
+    if (!formData.motivation.trim())
+      newErrors.motivation = "Please tell us your motivation";
+    if (!formData.goals.trim())
+      newErrors.goals = "Please share your career goals";
+    if (!formData.terms) newErrors.terms = "You must agree to the terms";
 
-    return newErrors
-  }
+    return newErrors;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const newErrors = validateForm()
+    const newErrors = validateForm();
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      return
+      setErrors(newErrors);
+      return;
     }
 
     // Simulate form submission
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    console.log("Form submitted:", formData);
+    setSubmitted(true);
 
     // Scroll to top to show success message
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     // Reset form after 5 seconds
     setTimeout(() => {
       setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        program: '',
-        background: '',
-        motivation: '',
-        goals: '',
-        technicalExperience: '',
-        desiredStartDate: '',
-        availability: 'flexible',
-        terms: false
-      })
-      setSubmitted(false)
-    }, 5000)
-  }
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        program: "",
+        background: "",
+        motivation: "",
+        goals: "",
+        technicalExperience: "",
+        desiredStartDate: "",
+        availability: "flexible",
+        terms: false,
+      });
+      setSubmitted(false);
+    }, 5000);
+  };
 
   if (submitted) {
     return (
@@ -106,10 +114,13 @@ export default function ApplyPage() {
                 Application Submitted Successfully!
               </h1>
               <p className="text-xl text-white/90 mb-8">
-                Thank you for your interest in GEOFINDA Tech Hub. We've received your application and will review it shortly.
+                Thank you for your interest in GEOFINDA Tech Hub. We've received
+                your application and will review it shortly.
               </p>
               <p className="text-white/80 mb-8">
-                You'll hear from our team within 2-3 business days. In the meantime, feel free to explore our programs and resources.
+                You'll hear from our team within 2-3 business days. In the
+                meantime, feel free to explore our internship tracks and
+                resources.
               </p>
               <Link
                 href="/"
@@ -120,23 +131,23 @@ export default function ApplyPage() {
             </div>
           </section>
         </main>
-        <Footer />
       </>
-    )
+    );
   }
 
   return (
     <>
-      <Header />
       <main>
         {/* Hero */}
         <section className="gradient-hero py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
-              Join <span className="text-gradient-brand">GEOFINDA Tech Hub</span>
+              Join{" "}
+              <span className="text-gradient-brand">GEOFINDA Tech Hub</span>
             </h1>
             <p className="text-xl text-white/90">
-              Complete your enrollment application in just a few minutes. Let's get you started on your tech career journey.
+              Complete your internship application in just a few minutes. Let's
+              get you started on your tech career journey.
             </p>
           </div>
         </section>
@@ -144,10 +155,15 @@ export default function ApplyPage() {
         {/* Form */}
         <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-8 animate-fade-in-up">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-8 animate-fade-in-up"
+            >
               {/* Personal Information */}
               <div className="bg-white rounded-lg border border-gray-200 p-8">
-                <h2 className="text-2xl font-black text-gray-900 mb-6">Personal Information</h2>
+                <h2 className="text-2xl font-black text-gray-900 mb-6">
+                  Personal Information
+                </h2>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -160,11 +176,15 @@ export default function ApplyPage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                        errors.firstName ? 'border-red-500' : 'border-gray-300'
+                        errors.firstName ? "border-red-500" : "border-gray-300"
                       }`}
                       placeholder="John"
                     />
-                    {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                    {errors.firstName && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.firstName}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -177,11 +197,15 @@ export default function ApplyPage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                        errors.lastName ? 'border-red-500' : 'border-gray-300'
+                        errors.lastName ? "border-red-500" : "border-gray-300"
                       }`}
                       placeholder="Doe"
                     />
-                    {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+                    {errors.lastName && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.lastName}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -196,11 +220,15 @@ export default function ApplyPage() {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
+                        errors.email ? "border-red-500" : "border-gray-300"
                       }`}
                       placeholder="john@example.com"
                     />
-                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -213,39 +241,50 @@ export default function ApplyPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'
+                        errors.phone ? "border-red-500" : "border-gray-300"
                       }`}
                       placeholder="+1 (555) 123-4567"
                     />
-                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
 
               {/* Program Selection */}
               <div className="bg-white rounded-lg border border-gray-200 p-8">
-                <h2 className="text-2xl font-black text-gray-900 mb-6">Program Selection</h2>
+                <h2 className="text-2xl font-black text-gray-900 mb-6">
+                  Internship Track Selection
+                </h2>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">
-                    Choose Your Program *
+                    Choose Your Internship Track *
                   </label>
                   <select
                     name="program"
+                    aria-label="Select Internship Track"
                     value={formData.program}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                      errors.program ? 'border-red-500' : 'border-gray-300'
+                      errors.program ? "border-red-500" : "border-gray-300"
                     }`}
                   >
-                    <option value="">Select a program...</option>
-                    {programs.map(prog => (
+                    <option value="">Select an internship track...</option>
+                    {programs.map((prog) => (
                       <option key={prog.id} value={prog.id}>
                         {prog.title}
                       </option>
                     ))}
                   </select>
-                  {errors.program && <p className="text-red-500 text-sm mt-1">{errors.program}</p>}
+                  {errors.program && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.program}
+                    </p>
+                  )}
                 </div>
 
                 <div className="mt-6">
@@ -255,6 +294,7 @@ export default function ApplyPage() {
                   <input
                     type="date"
                     name="desiredStartDate"
+                    aria-label="Desired Start Date"
                     value={formData.desiredStartDate}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
@@ -269,10 +309,13 @@ export default function ApplyPage() {
                     name="availability"
                     value={formData.availability}
                     onChange={handleChange}
+                    aria-label="Availability"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                   >
                     <option value="full-time">Full-time commitment</option>
-                    <option value="part-time">Part-time (working or studying)</option>
+                    <option value="part-time">
+                      Part-time (working or studying)
+                    </option>
                     <option value="flexible">Flexible schedule</option>
                   </select>
                 </div>
@@ -280,7 +323,9 @@ export default function ApplyPage() {
 
               {/* Background & Experience */}
               <div className="bg-white rounded-lg border border-gray-200 p-8">
-                <h2 className="text-2xl font-black text-gray-900 mb-6">Background & Experience</h2>
+                <h2 className="text-2xl font-black text-gray-900 mb-6">
+                  Background & Experience
+                </h2>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">
@@ -288,6 +333,7 @@ export default function ApplyPage() {
                   </label>
                   <select
                     name="background"
+                    aria-label="Current Background"
                     value={formData.background}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
@@ -318,23 +364,29 @@ export default function ApplyPage() {
 
               {/* Motivation & Goals */}
               <div className="bg-white rounded-lg border border-gray-200 p-8">
-                <h2 className="text-2xl font-black text-gray-900 mb-6">Your Motivation & Goals</h2>
+                <h2 className="text-2xl font-black text-gray-900 mb-6">
+                  Your Motivation & Goals
+                </h2>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">
-                    What motivates you to join GEOFINDA? *
+                    What motivates you to join GEOFINDA Tech Hub? *
                   </label>
                   <textarea
                     name="motivation"
                     value={formData.motivation}
                     onChange={handleChange}
-                    placeholder="Share what excites you about this program..."
+                    placeholder="Share what excites you about this internship track..."
                     rows={4}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                      errors.motivation ? 'border-red-500' : 'border-gray-300'
+                      errors.motivation ? "border-red-500" : "border-gray-300"
                     }`}
                   />
-                  {errors.motivation && <p className="text-red-500 text-sm mt-1">{errors.motivation}</p>}
+                  {errors.motivation && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.motivation}
+                    </p>
+                  )}
                 </div>
 
                 <div className="mt-6">
@@ -348,10 +400,12 @@ export default function ApplyPage() {
                     placeholder="Where do you see yourself in 2 years?"
                     rows={4}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
-                      errors.goals ? 'border-red-500' : 'border-gray-300'
+                      errors.goals ? "border-red-500" : "border-gray-300"
                     }`}
                   />
-                  {errors.goals && <p className="text-red-500 text-sm mt-1">{errors.goals}</p>}
+                  {errors.goals && (
+                    <p className="text-red-500 text-sm mt-1">{errors.goals}</p>
+                  )}
                 </div>
               </div>
 
@@ -366,10 +420,15 @@ export default function ApplyPage() {
                     className="mt-1 w-5 h-5 accent-primary"
                   />
                   <span className="text-gray-700">
-                    I agree to the terms and conditions and understand that this is an enrollment application for the <span className="font-bold">GEOFINDA Tech Hub</span> program.
+                    I agree to the terms and conditions and understand that this
+                    is an enrollment application for an{" "}
+                    <span className="font-bold">GEOFINDA Tech Hub</span>{" "}
+                    academic internship track.
                   </span>
                 </label>
-                {errors.terms && <p className="text-red-500 text-sm mt-2">{errors.terms}</p>}
+                {errors.terms && (
+                  <p className="text-red-500 text-sm mt-2">{errors.terms}</p>
+                )}
               </div>
 
               {/* Submit Button */}
@@ -381,12 +440,17 @@ export default function ApplyPage() {
               </button>
 
               <p className="text-center text-gray-600 text-sm">
-                By submitting this form, you're taking the first step toward an exciting tech career with <span className="font-bold text-gradient-brand">GEOFINDA Tech Hub</span>.
+                By submitting this form, you're taking the first step toward an
+                exciting tech career with{" "}
+                <span className="font-bold text-gradient-brand">
+                  GEOFINDA Tech Hub
+                </span>
+                .
               </p>
             </form>
           </div>
         </section>
       </main>
     </>
-  )
+  );
 }
