@@ -50,7 +50,7 @@ export function ProgramCard({ program }: ProgramCardProps) {
             <Icon className="w-5 h-5 text-white" />
           </div>
           <span className="text-[10px] font-medium uppercase tracking-widest text-gray-400 mt-0.5">
-            Internship
+            Opportunity
           </span>
         </div>
 

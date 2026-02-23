@@ -51,7 +51,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/programs"
+                  href="/opportunities"
                   className="hover:text-primary transition-colors"
                 >
                   Internship Tracks

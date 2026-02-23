@@ -1,3 +1,3 @@
 # Career-website
 
-Internship portal for both Academic and Proffessional individuals
+Career portal for Academic and Professional internships, job placements, and career opportunities

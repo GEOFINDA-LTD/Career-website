@@ -6,11 +6,11 @@ const faqCategories = [
     faqs: [
       {
         q: "What is GEOFINDA Tech Hub?",
-        a: "GEOFINDA Tech Hub is a tech solutions and software development company based in Kigali, Rwanda. Through our Career Portal, we offer structured academic internship tracks with mentorship, real-world projects, and career support for aspiring technology professionals.",
+        a: "GEOFINDA Tech Hub is a tech solutions and software development company based in Kigali, Rwanda. Through our Career Portal, we offer structured career opportunities including academic and professional internships, job placements, mentorship, and real-world projects for aspiring technology professionals.",
       },
       {
         q: "Who is GEOFINDA Tech Hub for?",
-        a: "We welcome high school students, university/college students, and early-career professionals in Rwanda who are passionate about building a career in technology. We have internship tracks for all levels from Foundation to Advanced.",
+        a: "We welcome high school students, university/college students, early-career professionals, and career changers in Rwanda who are passionate about building a career in technology. We offer opportunities for all levels from Foundation to Advanced.",
       },
       {
         q: "How is GEOFINDA Tech Hub different from bootcamps?",
@@ -19,15 +19,15 @@ const faqCategories = [
     ],
   },
   {
-    title: "Internship Tracks & Enrollment",
+    title: "Opportunities & Enrollment",
     faqs: [
       {
-        q: "How many internship tracks do you offer?",
-        a: "We offer 30+ internship tracks across 5 technology domains: Core Software & Engineering, Infrastructure & Systems, Electronics & Embedded Systems, AI & Emerging Technologies, and Creative & Digital Technology.",
+        q: "How many opportunities do you offer?",
+        a: "We offer 30+ opportunities across 5 technology domains: Core Software & Engineering, Infrastructure & Systems, Electronics & Embedded Systems, AI & Emerging Technologies, and Creative & Digital Technology. These include academic internships, professional internships, and job placements.",
       },
       {
-        q: "How long are the internship tracks?",
-        a: "Most tracks run for 10-14 weeks, with an average of 12 weeks. You'll typically spend 20-30 hours per week on coursework, projects, and partner placement activities.",
+        q: "How long are the opportunities?",
+        a: "Most structured internship tracks run for 10-14 weeks, with an average of 12 weeks. Job placements and professional roles vary by employer. Check specific listings for details.",
       },
       {
         q: "Do I need prior experience?",
@@ -47,16 +47,16 @@ const faqCategories = [
     title: "Cost & Logistics",
     faqs: [
       {
-        q: "How much do internship tracks cost?",
-        a: "Pricing varies by track and includes mentorship, curriculum, and career support. Contact us for specific pricing and available payment arrangements.",
+        q: "How much do opportunities cost?",
+        a: "Pricing varies by offering. Some opportunities (structured internships and training) may have fees that include mentorship and curriculum; job placements are employer roles. Contact us for specific pricing and arrangements.",
       },
       {
         q: "Can I study while enrolled?",
         a: "Absolutely! Many of our interns are full-time high school or university students. Our scheduling is designed to complement academic commitments.",
       },
       {
-        q: "Is the internship online or in-person?",
-        a: "Most tracks combine online learning with on-site components, especially during partner placement phases. The format depends on the specific track and partner.",
+        q: "Are opportunities online or in-person?",
+        a: "Formats vary by opportunity — some are fully online, some are hybrid, and partner placements are often on-site. Check each listing for format details.",
       },
       {
         q: "Where is GEOFINDA Tech Hub located?",
@@ -72,16 +72,16 @@ const faqCategories = [
         a: "You'll be paired with an experienced professional for dedicated 1-on-1 guidance. Regular sessions cover technical skills, career planning, and professional development throughout your internship.",
       },
       {
-        q: "What are internship partners?",
-        a: "We partner with established companies in specific technology domains to provide real-world internship placements. Partners change by season to give interns diverse industry exposure. Visit our Partners page to see current season partners.",
+        q: "What are partner placements?",
+        a: "We partner with established companies across technology domains to provide real-world placements and hiring opportunities. Partners change by season to give participants diverse industry exposure. Visit our Partners page to see current partners.",
       },
       {
         q: "Will I work at a partner company?",
-        a: "Yes — during the partner placement phase of your internship, you'll gain hands-on experience at one of our seasonal partner companies, working in real professional environments.",
+        a: "Yes — depending on the opportunity, you may be placed with a partner company for hands-on experience or considered for direct hire by partners during/after the placement.",
       },
       {
-        q: "Who is the current internship partner?",
-        a: "Partners change by season. Visit our Partners page for the most up-to-date list of active partners for the current internship season.",
+        q: "Who are the current partners?",
+        a: "Partners change by season. Visit our Partners page for the most up-to-date list of active partner organizations and hiring partners.",
       },
     ],
   },
@@ -89,16 +89,16 @@ const faqCategories = [
     title: "Outcomes & Career",
     faqs: [
       {
-        q: "What will I have after completing an internship track?",
-        a: "You'll have a portfolio of real-world projects, professional experience from partner placements, a capstone project, structured mentorship experience, and career support — all of which prepare you for employment in technology.",
+        q: "What will I gain after completing an opportunity?",
+        a: "You'll have portfolio projects, practical experience from partner placements, a capstone (where applicable), structured mentorship, and career support — all designed to prepare you for employment or advancement in technology.",
       },
       {
         q: "Do you guarantee a job?",
         a: "We don't guarantee jobs. We provide portfolio-quality projects, partner placement experience, interview preparation, and career guidance. Your effort combined with our support creates opportunity.",
       },
       {
-        q: "What levels of internship tracks are available?",
-        a: "We offer Foundation (beginner-friendly), Intermediate (some prior knowledge), and Advanced (experienced learners) level tracks across all five technology domains.",
+        q: "What levels of opportunities are available?",
+        a: "We offer Foundation (beginner-friendly), Intermediate, and Advanced levels across all five technology domains, suitable for students, early-career professionals, and career changers.",
       },
     ],
   },
