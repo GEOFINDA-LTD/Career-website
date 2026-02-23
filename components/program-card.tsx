@@ -1,99 +1,132 @@
-import { Program, categoryLabels } from '@/lib/programs-data'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import {
+  Program,
+  categoryLabels,
+  categoryColors,
+  type ProgramCategory,
+} from "@/lib/programs-data";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Clock,
+  MapPin,
+  Briefcase,
+  Code,
+  Server,
+  Cpu,
+  Brain,
+  Palette,
+  BookmarkPlus,
+} from "lucide-react";
 
 interface ProgramCardProps {
-  program: Program
+  program: Program;
 }
 
-export function ProgramCard({ program }: ProgramCardProps) {
-  const categoryColor = {
-    web: 'from-[#4CC3E0]/10 to-[#1B5F7F]/10 border-[#4CC3E0]/30',
-    mobile: 'from-[#A6D93A]/10 to-[#0E6B2E]/10 border-[#A6D93A]/30',
-    data: 'from-[#0F6FA3]/10 to-[#1B5F7F]/10 border-[#0F6FA3]/30',
-    cloud: 'from-[#4CC3E0]/10 to-[#A6D93A]/10 border-[#4CC3E0]/30',
-    ai: 'from-[#0E6B2E]/10 to-[#A6D93A]/10 border-[#0E6B2E]/30'
-  }
+const categoryIcons: Record<ProgramCategory, typeof Code> = {
+  software: Code,
+  infrastructure: Server,
+  electronics: Cpu,
+  ai: Brain,
+  creative: Palette,
+};
 
-  const categoryBadge = {
-    web: 'bg-[#4CC3E0]/20 text-[#0F6FA3] font-bold',
-    mobile: 'bg-[#A6D93A]/20 text-[#0E6B2E] font-bold',
-    data: 'bg-[#0F6FA3]/20 text-[#0F6FA3] font-bold',
-    cloud: 'bg-[#4CC3E0]/20 text-[#0F6FA3] font-bold',
-    ai: 'bg-[#0E6B2E]/20 text-[#0E6B2E] font-bold'
-  }
+export function ProgramCard({ program }: ProgramCardProps) {
+  const Icon = categoryIcons[program.category];
+
+  const levelColors = {
+    Foundation: "text-green-600",
+    Intermediate: "text-amber-600",
+    Advanced: "text-red-600",
+  };
 
   return (
-    <Link href={`/programs/${program.id}`}>
-      <div className={`h-full border bg-gradient-to-br ${categoryColor[program.category]} rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer`}>
-        {/* Image */}
-        <div className="relative h-48 overflow-hidden bg-gray-200">
-          <Image
-            src={program.image}
-            alt={program.title}
-            fill
-            className="object-cover hover:scale-110 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+    <Link href={`/programs/${program.id}`} className="block h-full group">
+      <div className="h-full bg-white rounded-lg border border-gray-200 hover:border-primary/40 hover:shadow-md transition-all duration-200 flex flex-col">
+        {/* Header */}
+        <div className="flex items-start justify-between gap-3 px-5 pt-5">
+          <div
+            className={`w-11 h-11 rounded-xl bg-gradient-to-br ${categoryColors[program.category]} flex items-center justify-center flex-shrink-0`}
+          >
+            <Icon className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-[10px] font-medium uppercase tracking-widest text-gray-400 mt-0.5">
+            Internship
+          </span>
         </div>
 
         {/* Content */}
-        <div className="p-6 flex flex-col h-full">
-          {/* Category Badge */}
-          <div className="flex items-center justify-between mb-3">
-            <span className={`text-xs font-bold px-3 py-1 rounded-full ${categoryBadge[program.category]}`}>
-              {categoryLabels[program.category]}
-            </span>
-            <span className="text-xs font-medium text-gray-600 bg-white px-2 py-1 rounded">
-              {program.duration}
-            </span>
-          </div>
-
+        <div className="px-5 pt-4 pb-5 flex flex-col flex-1">
           {/* Title */}
-          <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+          <h3 className="text-base font-semibold text-gray-900 leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors tracking-[-0.01em]">
             {program.title}
           </h3>
 
+          {/* Company + Location */}
+          <div className="flex items-center gap-2.5 text-[13px] text-gray-500 mb-3">
+            <span className="font-medium text-gray-700">GEOFINDA Tech Hub</span>
+            <span className="text-gray-300">·</span>
+            <span className="flex items-center gap-1 text-gray-500">
+              <MapPin className="w-3.5 h-3.5 text-gray-400" />
+              Kigali, RW
+            </span>
+          </div>
+
+          {/* Meta row */}
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 mb-4">
+            <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">
+              <Clock className="w-3.5 h-3.5 text-gray-400" />
+              {program.duration}
+            </span>
+            <span
+              className={`inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-md ${
+                program.level === "Foundation"
+                  ? "bg-green-50 text-green-700"
+                  : program.level === "Intermediate"
+                    ? "bg-amber-50 text-amber-700"
+                    : "bg-red-50 text-red-700"
+              }`}
+            >
+              {program.level}
+            </span>
+            <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">
+              <Briefcase className="w-3.5 h-3.5 text-gray-400" />
+              <span className="truncate max-w-[120px]">
+                {categoryLabels[program.category]}
+              </span>
+            </span>
+          </div>
+
           {/* Description */}
-          <p className="text-sm text-gray-600 mb-4 line-clamp-2 flex-grow">
+          <p className="text-[13px] leading-relaxed text-gray-500 mb-4 line-clamp-2 flex-1">
             {program.shortDescription}
           </p>
 
           {/* Skills */}
-          <div className="mb-4">
-            <div className="flex flex-wrap gap-1">
-              {program.skills.slice(0, 3).map((skill) => (
-                <span
-                  key={skill}
-                  className="text-xs bg-white text-gray-700 px-2 py-1 rounded-full border border-gray-200"
-                >
-                  {skill}
-                </span>
-              ))}
-              {program.skills.length > 3 && (
-                <span className="text-xs text-gray-500 px-2 py-1">
-                  +{program.skills.length - 3} more
-                </span>
-              )}
-            </div>
+          <div className="flex flex-wrap gap-1.5">
+            {program.skills.slice(0, 3).map((skill) => (
+              <span
+                key={skill}
+                className="text-[11px] text-gray-600 bg-gray-50 border border-gray-200/80 px-2.5 py-1 rounded-md font-medium"
+              >
+                {skill}
+              </span>
+            ))}
+            {program.skills.length > 3 && (
+              <span className="text-[11px] text-gray-400 px-1.5 py-1 font-medium">
+                +{program.skills.length - 3}
+              </span>
+            )}
           </div>
+        </div>
 
-          {/* Level Badge */}
-          <div className="flex items-center justify-between pt-4 border-t border-gray-200/50">
-            <span className={`text-xs font-semibold ${
-              program.level === 'Beginner'
-                ? 'text-green-700'
-                : program.level === 'Intermediate'
-                ? 'text-yellow-700'
-                : 'text-red-700'
-            }`}>
-              {program.level}
-            </span>
-            <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
-          </div>
+        {/* Footer */}
+        <div className="px-5 py-3.5 border-t border-gray-100 flex items-center justify-between mt-auto">
+          <span className="text-[13px] text-primary font-semibold group-hover:underline">
+            View Position
+          </span>
+          <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200" />
         </div>
       </div>
     </Link>
-  )
+  );
 }

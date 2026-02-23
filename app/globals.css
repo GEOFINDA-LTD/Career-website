@@ -7,9 +7,12 @@
   /* GEOFINDA Brand Colors */
   --primary-blue: #4CC3E0;
   --primary-blue-dark: #0F6FA3;
+  --blue-mid: #1E9BD1;
   --primary-green: #A6D93A;
   --primary-green-dark: #0E6B2E;
+  --green-mid: #61BA49;
   --dark-teal: #1B5F7F;
+  --inner-dark: #0C5876;
   --white: #FFFFFF;
   --gray-50: #F8F9FB;
   --gray-100: #F0F3F7;
@@ -141,84 +144,163 @@
   }
 }
 
-@layer components {
-  /* Gradient Utilities */
-  .gradient-hero {
-    @apply bg-gradient-to-br from-[#4CC3E0] via-[#1B5F7F] to-[#0F6FA3];
+/* ─── Text Balance ───────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ─── Brand Gradient Utilities ───────────────────────────────── */
+@layer utilities {
+  .gradient-blue {
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 50%, #0F6FA3 100%);
+  }
+
+  .gradient-green {
+    background: linear-gradient(135deg, #A6D93A 0%, #61BA49 50%, #0E6B2E 100%);
   }
 
   .gradient-brand {
-    @apply bg-gradient-to-r from-[#4CC3E0] to-[#A6D93A];
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 30%, #0F6FA3 50%, #61BA49 70%, #0E6B2E 100%);
   }
 
-  .gradient-border {
-    @apply relative;
-    background: linear-gradient(135deg, #4CC3E0, #A6D93A) border-box;
-    border: 1px solid transparent;
+  .gradient-hero {
+    background: linear-gradient(160deg, #0C5876 0%, #0F6FA3 40%, #0C5876 70%, #0E4A30 100%);
   }
 
-  .text-gradient-brand {
-    @apply bg-gradient-to-r from-[#4CC3E0] via-[#0F6FA3] to-[#A6D93A] bg-clip-text text-transparent;
+  .gradient-dark {
+    background: linear-gradient(160deg, #071B24 0%, #0C5876 50%, #0A3D1E 100%);
   }
 
   .text-gradient-blue {
-    @apply bg-gradient-to-r from-[#4CC3E0] to-[#0F6FA3] bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 50%, #0F6FA3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .text-gradient-green {
-    @apply bg-gradient-to-r from-[#A6D93A] to-[#0E6B2E] bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #A6D93A 0%, #61BA49 50%, #0E6B2E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Glass Morphism */
-  .glass {
-    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 40%, #61BA49 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .glass-dark {
-    @apply backdrop-blur-md bg-gray-900/20 border border-white/10;
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+    border: 1px solid transparent;
   }
 
-  /* Animations */
-  @keyframes float-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #4CC3E0 0%, #1E9BD1 40%, #61BA49 70%, #0E6B2E 100%);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
   }
 
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .gradient-border:hover::before {
+    opacity: 0.6;
   }
+}
 
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px rgba(76, 195, 224, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 30px rgba(76, 195, 224, 0.5);
-    }
+/* ─── Modern Animations ──────────────────────────────────────── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(30, 155, 209, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(30, 155, 209, 0.3); }
+}
+
+@layer utilities {
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
   }
 
   .animate-float-in {
-    animation: float-in 0.6s ease-out;
+    animation: float-in 0.6s ease-out both;
   }
 
   .animate-fade-in-up {
-    animation: fade-in-up 0.7s ease-out;
+    animation: fade-in-up 0.7s ease-out both;
+  }
+
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
   }
 
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow 3s ease-in-out infinite;
   }
+}
+
+/* ─── Glass Morphism ─────────────────────────────────────────── */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: rgba(12, 88, 118, 0.3);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+}
+
+/* ─── Modern Selection ───────────────────────────────────────── */
+::selection {
+  background: rgba(30, 155, 209, 0.2);
+  color: inherit;
+}
+
+/* ─── Smooth Scroll ──────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }

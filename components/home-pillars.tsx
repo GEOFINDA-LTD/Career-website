@@ -1,27 +1,31 @@
-import { Code, Users, Zap, TrendingUp } from 'lucide-react'
+import { Rocket, Building2, UserCheck, TrendingUp } from "lucide-react";
 
 const pillars = [
   {
-    icon: Code,
-    title: 'Expert Technical Training',
-    description: 'Learn from industry professionals. Master the latest technologies and frameworks through hands-on projects and real-world scenarios.'
+    icon: Rocket,
+    title: "Real Project Execution",
+    description:
+      "Not simulations. Not tutorials. Participants build real-world projects that mirror what professional teams deliver — from planning to production.",
   },
   {
-    icon: Users,
-    title: 'Dedicated Mentorship',
-    description: 'Get paired with experienced mentors who guide your learning journey. Regular 1-on-1 sessions and career advice included.'
+    icon: Building2,
+    title: "Industry Simulation",
+    description:
+      "Work environments mirror professional settings. Deadlines, code reviews, sprint cycles, and cross-functional collaboration — the way real teams operate.",
   },
   {
-    icon: Zap,
-    title: 'Industry Simulation',
-    description: 'Work on projects that mirror real company environments. Gain experience solving actual business problems and collaborating with teams.'
+    icon: UserCheck,
+    title: "Structured Mentorship",
+    description:
+      "Every intern is paired with an experienced mentor who provides regular guidance, technical feedback, and career direction throughout the internship.",
   },
   {
     icon: TrendingUp,
-    title: 'Career Placement Focus',
-    description: 'Build skills and networks that lead to opportunities. Our network and placement support help you launch your tech career.'
-  }
-]
+    title: "Career-Level Skill Building",
+    description:
+      "Our internship tracks develop not just technical skills, but the professional capabilities employers look for — communication, problem-solving, and ownership.",
+  },
+];
 
 export function HomePillars() {
   return (
@@ -30,17 +34,20 @@ export function HomePillars() {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-            Why Choose <span className="text-gradient-brand">GEOFINDA Tech Hub</span>?
+            What Makes{" "}
+            <span className="text-gradient-brand">GEOFINDA Tech Hub</span>{" "}
+            Different?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Our four pillars approach ensures you gain practical skills, guidance, and experience for career success.
+            Four pillars that separate us from traditional training — real
+            execution, real mentorship, real career outcomes.
           </p>
         </div>
 
         {/* Pillars Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, index) => {
-            const Icon = pillar.icon
+            const Icon = pillar.icon;
             return (
               <div
                 key={index}
@@ -62,10 +69,10 @@ export function HomePillars() {
                   {pillar.description}
                 </p>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }

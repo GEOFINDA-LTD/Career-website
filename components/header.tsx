@@ -1,36 +1,41 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Programs', href: '/programs' },
-    { label: 'How It Works', href: '/how-it-works' },
-    { label: 'For Parents', href: '/for-parents' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Contact', href: '/contact' },
-  ]
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Internship Tracks", href: "/programs" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "Partners", href: "/partnership" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 flex-shrink-0 group hover:opacity-80 transition-opacity">
-          <Image 
-            src="/logo.png" 
-            alt="GEOFINDA Tech Hub" 
-            width={40} 
+        <Link
+          href="/"
+          className="flex items-center gap-3 flex-shrink-0 group hover:opacity-80 transition-opacity"
+        >
+          <Image
+            src="/logo.png"
+            alt="GEOFINDA Tech Hub"
+            width={40}
             height={40}
             className="w-10 h-10"
           />
-          <span className="hidden sm:inline font-bold text-lg text-gradient-blue">GEOFINDA Tech Hub</span>
+          <span className="hidden sm:inline font-bold text-lg text-gradient-blue">
+            Career Portal
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -95,5 +100,5 @@ export function Header() {
         )}
       </nav>
     </header>
-  )
+  );
 }
