@@ -104,9 +104,7 @@ export default function ProgramsPage() {
               Career Opportunities & Internships
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
-              Industry-aligned opportunities designed for students and
-              early-career professionals. Each offering includes structured
-              mentorship, real-world projects, and partner placements.
+              Industry-aligned opportunities designed for students and early-career professionals. Each offering includes structured mentorship, real-world projects, and partner placements.
             </p>
 
             {/* Domain Tabs — inside hero */}
@@ -321,8 +319,8 @@ export default function ProgramsPage() {
                               {program.title}
                             </h3>
                             <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 bg-gray-50 px-2 py-0.5 rounded flex-shrink-0 hidden sm:block">
-                              Opportunity
-                            </span>
+                                Opportunity
+                              </span>
                           </div>
                           <div className="flex items-center gap-3 text-xs text-gray-500 mb-1.5">
                             <span className="font-medium text-gray-700">
@@ -409,8 +407,7 @@ export default function ProgramsPage() {
               Ready to Start Your Career?
             </h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-              Choose an opportunity and apply today. Our team will guide you
-              through the process.
+              Choose an opportunity and apply today. Our team will guide you through the process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

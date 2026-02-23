@@ -56,8 +56,7 @@ export default function ApplyPage() {
     if (!formData.email.trim() || !formData.email.includes("@"))
       newErrors.email = "Valid email is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.program)
-      newErrors.program = "Please select an internship track";
+    if (!formData.program) newErrors.program = "Please select an opportunity";
     if (!formData.motivation.trim())
       newErrors.motivation = "Please tell us your motivation";
     if (!formData.goals.trim())
@@ -146,8 +145,8 @@ export default function ApplyPage() {
               <span className="text-gradient-brand">GEOFINDA Tech Hub</span>
             </h1>
             <p className="text-xl text-white/90">
-              Complete your internship application in just a few minutes. Let's
-              get you started on your tech career journey.
+              Complete your application in just a few minutes. Let's get you
+              started on your tech career journey.
             </p>
           </div>
         </section>
@@ -257,23 +256,23 @@ export default function ApplyPage() {
               {/* Program Selection */}
               <div className="bg-white rounded-lg border border-gray-200 p-8">
                 <h2 className="text-2xl font-black text-gray-900 mb-6">
-                  Internship Track Selection
+                  Opportunity Selection
                 </h2>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-900 mb-2">
-                    Choose Your Internship Track *
+                    Choose Your Opportunity *
                   </label>
                   <select
                     name="program"
-                    aria-label="Select Internship Track"
+                    aria-label="Select Opportunity"
                     value={formData.program}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
                       errors.program ? "border-red-500" : "border-gray-300"
                     }`}
                   >
-                    <option value="">Select an internship track...</option>
+                    <option value="">Select an opportunity...</option>
                     {programs.map((prog) => (
                       <option key={prog.id} value={prog.id}>
                         {prog.title}
@@ -376,7 +375,7 @@ export default function ApplyPage() {
                     name="motivation"
                     value={formData.motivation}
                     onChange={handleChange}
-                    placeholder="Share what excites you about this internship track..."
+                    placeholder="Share what excites you about this opportunity..."
                     rows={4}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition ${
                       errors.motivation ? "border-red-500" : "border-gray-300"
@@ -421,9 +420,8 @@ export default function ApplyPage() {
                   />
                   <span className="text-gray-700">
                     I agree to the terms and conditions and understand that this
-                    is an enrollment application for an{" "}
-                    <span className="font-bold">GEOFINDA Tech Hub</span>{" "}
-                    academic internship track.
+                    is an application for a GEOFINDA Tech Hub opportunity
+                    (academic or professional internship, or job placement).
                   </span>
                 </label>
                 {errors.terms && (

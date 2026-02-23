@@ -11,7 +11,7 @@ export function Header() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Internship Tracks", href: "/programs" },
+    { label: "Career Opportunities", href: "/opportunities" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "Partners", href: "/partnership" },
     { label: "FAQ", href: "/faq" },

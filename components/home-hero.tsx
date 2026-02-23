@@ -41,8 +41,9 @@ export function HomeHero() {
           style={{ animationDelay: "0.2s" }}
         >
           Build real projects. Work in industry-simulated environments. Get
-          paired with experienced mentors. Apply for 30+ academic internship
-          tracks across five technology domains.
+          paired with experienced mentors. Explore 30+ career opportunities —
+          academic and professional internships, and job placements across five
+          technology domains.
         </p>
 
         {/* CTA Buttons */}
@@ -61,7 +62,7 @@ export function HomeHero() {
             href="/programs"
             className="px-8 py-4 bg-white/20 backdrop-blur-md text-white font-bold rounded-lg border border-white/30 hover:bg-white/40 transition-all duration-200 inline-flex items-center gap-2"
           >
-            Explore Internship Tracks
+            Explore Opportunities
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -75,7 +76,7 @@ export function HomeHero() {
             <div className="text-3xl md:text-4xl font-black text-white">
               30+
             </div>
-            <div className="text-white/80 text-sm mt-1">Internship Tracks</div>
+            <div className="text-white/80 text-sm mt-1">Opportunities</div>
           </div>
           <div
             className="animate-fade-in-up"
@@ -91,7 +92,7 @@ export function HomeHero() {
             <div className="text-3xl md:text-4xl font-black text-white">
               8–14
             </div>
-            <div className="text-white/80 text-sm mt-1">Week Internships</div>
+            <div className="text-white/80 text-sm mt-1">Duration (weeks)</div>
           </div>
         </div>
       </div>

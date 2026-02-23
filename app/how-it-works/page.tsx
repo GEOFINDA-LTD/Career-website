@@ -24,10 +24,10 @@ const steps = [
   },
   {
     number: 2,
-    title: "Track Selection",
+    title: "Opportunity Selection",
     icon: CheckCircle,
     description:
-      "Choose from our 30+ internship tracks across five technology domains based on your interests and career direction.",
+      "Choose from our 30+ career opportunities across five technology domains based on your interests and career direction.",
     details: [
       "Browse all internship tracks",
       "Get personalized recommendations",
@@ -112,9 +112,9 @@ export default function HowItWorksPage() {
               <span className="text-gradient-brand">Works</span>
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Our 7-phase internship journey takes you from application to
-              career launch. From foundations to partner placement, we guide
-              every step.
+              Our 7-phase career journey takes you from application to career
+              launch. From foundations to partner placement and job placements,
+              we guide every step.
             </p>
           </div>
         </section>
@@ -352,7 +352,7 @@ export default function HowItWorksPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-brand">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-black mb-4">
-              Ready to Start Your Internship?
+              Ready to Start Your Career?
             </h2>
             <p className="text-lg mb-8 text-white/90">
               Apply now and take the first step towards your tech career.

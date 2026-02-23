@@ -9,27 +9,25 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title:
-    "GEOFINDA Tech Hub Career Portal — Academic/Proffessional Internship Tracks",
+  title: "GEOFINDA Tech Hub Career Portal — Career Opportunities & Internships",
   description:
-    "GEOFINDA Tech Hub Career Portal: Apply for 30+ academic internship tracks across five technology domains. Build real projects, get mentored, and launch your tech career from Kigali, Rwanda.",
+    "GEOFINDA Tech Hub Career Portal: Explore 30+ career opportunities including academic and professional internships, and job placements across five technology domains. Build projects, get mentored, and launch your tech career from Kigali, Rwanda.",
   keywords: [
     "tech careers",
-    "academic internship",
+    "career opportunities",
     "GEOFINDA Tech Hub",
     "Rwanda",
-    "technology internship",
+    "internships",
     "career portal",
   ],
-  generator: "v0.app",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
-    title: "GEOFINDA Tech Hub Career Portal — Academic Internships",
+    title: "GEOFINDA Tech Hub Career Portal — Opportunities & Internships",
     description:
-      "Apply for academic internship tracks in software, infrastructure, electronics, AI, and creative technology.",
+      "Explore academic and professional internship tracks, job placements, and career opportunities in software, infrastructure, electronics, AI, and creative technology.",
     images: [{ url: "/logo.png", width: 512, height: 512 }],
   },
 };
