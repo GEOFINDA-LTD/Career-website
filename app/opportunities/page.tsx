@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ProgramCard } from "@/components/program-card";
+import { OpportunityCard } from "@/components/Opportunity-card";
 import {
-  programs,
+  opportunities,
   categoryLabels,
   categoryColors,
-  type Program,
-  type ProgramCategory,
-} from "@/lib/programs-data";
+  type Opportunity,
+  type OpportunitiesCategory,
+} from "@/lib/opportunities-data";
 import {
   Search,
   X,
@@ -25,9 +25,9 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-type CategoryType = Program["category"];
+type CategoryType = Opportunity["category"];
 
-const categoryIcons: Record<ProgramCategory, typeof Code> = {
+const categoryIcons: Record<OpportunitiesCategory, typeof Code> = {
   software: Code,
   infrastructure: Server,
   electronics: Cpu,
@@ -35,18 +35,18 @@ const categoryIcons: Record<ProgramCategory, typeof Code> = {
   creative: Palette,
 };
 
-const categoryTrackCounts: Record<ProgramCategory, number> = {
-  software: programs.filter((p) => p.category === "software").length,
-  infrastructure: programs.filter((p) => p.category === "infrastructure")
+const categoryTrackCounts: Record<OpportunitiesCategory, number> = {
+  software: opportunities.filter((p) => p.category === "software").length,
+  infrastructure: opportunities.filter((p) => p.category === "infrastructure")
     .length,
-  electronics: programs.filter((p) => p.category === "electronics").length,
-  ai: programs.filter((p) => p.category === "ai").length,
-  creative: programs.filter((p) => p.category === "creative").length,
+  electronics: opportunities.filter((p) => p.category === "electronics").length,
+  ai: opportunities.filter((p) => p.category === "ai").length,
+  creative: opportunities.filter((p) => p.category === "creative").length,
 };
 
 type LevelFilter = "all" | "Foundation" | "Intermediate" | "Advanced";
 
-export default function ProgramsPage() {
+export default function opportunitiesPage() {
   const [selectedCategory, setSelectedCategory] = useState<
     CategoryType | "all"
   >("all");
@@ -54,17 +54,19 @@ export default function ProgramsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
-  const filteredPrograms = useMemo(() => {
-    return programs.filter((program) => {
+  const filteredopportunities = useMemo(() => {
+    return opportunities.filter((opportunity) => {
       const matchesCategory =
-        selectedCategory === "all" || program.category === selectedCategory;
+        selectedCategory === "all" || opportunity.category === selectedCategory;
       const matchesLevel =
-        selectedLevel === "all" || program.level === selectedLevel;
+        selectedLevel === "all" || opportunity.level === selectedLevel;
       const matchesSearch =
         searchQuery === "" ||
-        program.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        program.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        program.skills.some((s) =>
+        opportunity.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        opportunity.description
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
+        opportunity.skills.some((s) =>
           s.toLowerCase().includes(searchQuery.toLowerCase()),
         );
       return matchesCategory && matchesLevel && matchesSearch;
@@ -82,7 +84,7 @@ export default function ProgramsPage() {
     setSearchQuery("");
   };
 
-  const domainCategories: ProgramCategory[] = [
+  const domainCategories: OpportunitiesCategory[] = [
     "software",
     "infrastructure",
     "electronics",
@@ -98,13 +100,15 @@ export default function ProgramsPage() {
           <div className="max-w-7xl mx-auto text-center">
             <div className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white text-sm font-medium mb-6">
               <GraduationCap className="w-4 h-4 inline mr-2" />
-              {programs.length} Tracks Across 5 Domains
+              {opportunities.length} Tracks Across 5 Domains
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
               Career Opportunities & Internships
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
-              Industry-aligned opportunities designed for students and early-career professionals. Each offering includes structured mentorship, real-world projects, and partner placements.
+              Industry-aligned opportunities designed for students and
+              early-career professionals. Each offering includes structured
+              mentorship, real-world projects, and partner placements.
             </p>
 
             {/* Domain Tabs — inside hero */}
@@ -126,7 +130,7 @@ export default function ProgramsPage() {
                       : "bg-white/20 text-white/80"
                   }`}
                 >
-                  {programs.length}
+                  {opportunities.length}
                 </span>
               </button>
 
@@ -255,9 +259,9 @@ export default function ProgramsPage() {
             {/* Active Filters Summary */}
             <div className="flex items-center justify-between mt-3">
               <p className="text-xs text-gray-500">
-                {filteredPrograms.length} of {programs.length} tracks
+                {filteredopportunities.length} of {opportunities.length} tracks
                 {selectedCategory !== "all" &&
-                  ` in ${categoryLabels[selectedCategory as ProgramCategory]}`}
+                  ` in ${categoryLabels[selectedCategory as OpportunitiesCategory]}`}
                 {selectedLevel !== "all" && ` · ${selectedLevel} level`}
               </p>
               {activeFilterCount > 0 && (
@@ -275,27 +279,27 @@ export default function ProgramsPage() {
         {/* Tracks Grid / List */}
         <section className="py-8 md:py-12 px-4 sm:px-6 lg:px-8 min-h-[50vh]">
           <div className="max-w-7xl mx-auto">
-            {filteredPrograms.length > 0 ? (
+            {filteredopportunities.length > 0 ? (
               viewMode === "grid" ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {filteredPrograms.map((program, index) => (
+                  {filteredopportunities.map((opportunity, index) => (
                     <div
-                      key={program.id}
+                      key={opportunity.id}
                       className="animate-float-in"
                       style={{
                         animationDelay: `${(index % 9) * 0.04}s`,
                       }}
                     >
-                      <ProgramCard program={program} />
+                      <OpportunityCard Opportunity={opportunity} />
                     </div>
                   ))}
                 </div>
               ) : (
                 <div className="space-y-2">
-                  {filteredPrograms.map((program, index) => (
+                  {filteredopportunities.map((opportunity, index) => (
                     <Link
-                      key={program.id}
-                      href={`/programs/${program.id}`}
+                      key={opportunity.id}
+                      href={`/opportunities/${opportunity.id}`}
                       className="animate-float-in block"
                       style={{
                         animationDelay: `${(index % 12) * 0.03}s`,
@@ -304,10 +308,10 @@ export default function ProgramsPage() {
                       <div className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-primary/40 hover:shadow-sm transition-all group">
                         {/* Domain Icon */}
                         <div
-                          className={`w-10 h-10 rounded-lg bg-gradient-to-br ${categoryColors[program.category]} flex items-center justify-center flex-shrink-0 mt-0.5`}
+                          className={`w-10 h-10 rounded-lg bg-gradient-to-br ${categoryColors[opportunity.category]} flex items-center justify-center flex-shrink-0 mt-0.5`}
                         >
                           {(() => {
-                            const Icon = categoryIcons[program.category];
+                            const Icon = categoryIcons[opportunity.category];
                             return <Icon className="w-5 h-5 text-white" />;
                           })()}
                         </div>
@@ -316,11 +320,11 @@ export default function ProgramsPage() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between gap-3 mb-1">
                             <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">
-                              {program.title}
+                              {opportunity.title}
                             </h3>
                             <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-400 bg-gray-50 px-2 py-0.5 rounded flex-shrink-0 hidden sm:block">
-                                Opportunity
-                              </span>
+                              Opportunity
+                            </span>
                           </div>
                           <div className="flex items-center gap-3 text-xs text-gray-500 mb-1.5">
                             <span className="font-medium text-gray-700">
@@ -334,30 +338,30 @@ export default function ProgramsPage() {
                             </span>
                           </div>
                           <p className="text-sm text-gray-500 line-clamp-1 mb-2">
-                            {program.shortDescription}
+                            {opportunity.shortDescription}
                           </p>
                           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500">
-                            <span>{program.duration}</span>
+                            <span>{opportunity.duration}</span>
                             <span
                               className={`font-semibold ${
-                                program.level === "Foundation"
+                                opportunity.level === "Foundation"
                                   ? "text-green-600"
-                                  : program.level === "Intermediate"
+                                  : opportunity.level === "Intermediate"
                                     ? "text-amber-600"
                                     : "text-red-600"
                               }`}
                             >
-                              {program.level}
+                              {opportunity.level}
                             </span>
                             <span>
                               {
                                 categoryLabels[
-                                  program.category as ProgramCategory
+                                  opportunity.category as OpportunitiesCategory
                                 ]
                               }
                             </span>
                             <div className="hidden md:flex items-center gap-1.5 ml-auto">
-                              {program.skills.slice(0, 4).map((skill) => (
+                              {opportunity.skills.slice(0, 4).map((skill) => (
                                 <span
                                   key={skill}
                                   className="text-[10px] text-gray-600 bg-gray-50 border border-gray-200 px-2 py-0.5 rounded-full font-medium"
@@ -407,7 +411,8 @@ export default function ProgramsPage() {
               Ready to Start Your Career?
             </h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-              Choose an opportunity and apply today. Our team will guide you through the process.
+              Choose an opportunity and apply today. Our team will guide you
+              through the process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

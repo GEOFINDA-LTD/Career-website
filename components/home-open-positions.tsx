@@ -1,10 +1,14 @@
 import Link from "next/link";
-import { programs, categoryLabels } from "@/lib/programs-data";
-import { ProgramCard } from "./program-card";
+import {
+  opportunities,
+  categoryLabels,
+  Opportunity,
+} from "@/lib/opportunities-data";
+import { OpportunityCard } from "./Opportunity-card";
 import { ArrowRight } from "lucide-react";
 
-export function HomePrograms() {
-  // Get featured programs (one from each category)
+export function HomeOpportunities() {
+  // Get featured opportunities (one from each category)
   const categories = [
     "software",
     "infrastructure",
@@ -12,8 +16,12 @@ export function HomePrograms() {
     "ai",
     "creative",
   ] as const;
-  const featuredPrograms = categories
-    .map((cat) => programs.find((p) => p.category === cat))
+  const featuredOpportunities = categories
+    .map((cat) =>
+      opportunities.find(
+        (opportunity: Opportunity) => opportunity.category === cat,
+      ),
+    )
     .filter(Boolean);
 
   return (
@@ -31,7 +39,7 @@ export function HomePrograms() {
             </p>
           </div>
           <Link
-            href="/programs"
+            href="/opportunities"
             className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
           >
             View All Tracks
@@ -39,15 +47,15 @@ export function HomePrograms() {
           </Link>
         </div>
 
-        {/* Featured Programs Grid */}
+        {/* Featured opportunities Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-          {featuredPrograms.map((program, index) => (
+          {featuredOpportunities.map((opportunity, index) => (
             <div
-              key={program?.id}
+              key={opportunity?.id}
               className="animate-float-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {program && <ProgramCard program={program} />}
+              {opportunity && <OpportunityCard Opportunity={opportunity} />}
             </div>
           ))}
         </div>
@@ -59,13 +67,13 @@ export function HomePrograms() {
           </h3>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
             {categories.map((category) => {
-              const count = programs.filter(
-                (p) => p.category === category,
+              const count = opportunities.filter(
+                (p: Opportunity) => p.category === category,
               ).length;
               return (
                 <Link
                   key={category}
-                  href={`/programs?category=${category}`}
+                  href={`/opportunities?category=${category}`}
                   className="p-4 bg-white/95 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white hover:shadow-xl transition-all text-center group"
                 >
                   <div className="text-2xl font-black text-gradient-brand mb-2 group-hover:scale-110 transition-transform">
