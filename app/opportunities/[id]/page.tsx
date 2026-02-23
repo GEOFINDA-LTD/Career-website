@@ -6,7 +6,7 @@ import {
   categoryLabels,
   categoryColors,
   type ProgramCategory,
-} from "@/lib/programs-data";
+} from "@/lib/opportunities-data";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -26,7 +26,7 @@ import {
   Brain,
   Palette,
 } from "lucide-react";
-import { ProgramCard } from "@/components/program-card";
+import { ProgramCard } from "@/components/Opportunity-card";
 
 interface PageProps {
   params: Promise<{
@@ -265,7 +265,8 @@ export default function ProgramDetailPage({ params }: PageProps) {
                     Interested in this position?
                   </h3>
                   <p className="text-sm text-gray-500 mb-5 leading-relaxed">
-                    Submit your application and our team will review your profile for this opportunity.
+                    Submit your application and our team will review your
+                    profile for this opportunity.
                   </p>
                   <Link
                     href={`/apply?program=${program.id}`}
@@ -340,13 +341,13 @@ export default function ProgramDetailPage({ params }: PageProps) {
                 </div>
 
                 {/* Back to tracks */}
-                  <Link
-                    href="/programs"
-                    className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors font-medium"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    View All Opportunities
-                  </Link>
+                <Link
+                  href="/programs"
+                  className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors font-medium"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  View All Opportunities
+                </Link>
               </div>
             </div>
           </div>

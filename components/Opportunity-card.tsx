@@ -1,9 +1,9 @@
 import {
-  Program,
+  Opportunity,
   categoryLabels,
   categoryColors,
-  type ProgramCategory,
-} from "@/lib/programs-data";
+  type OpportunitiesCategory,
+} from "@/lib/opportunities-data";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,14 +15,13 @@ import {
   Cpu,
   Brain,
   Palette,
-  BookmarkPlus,
 } from "lucide-react";
 
-interface ProgramCardProps {
-  program: Program;
+interface OpportunitYCardProps {
+  Opportunity: Opportunity;
 }
 
-const categoryIcons: Record<ProgramCategory, typeof Code> = {
+const categoryIcons: Record<OpportunitiesCategory, typeof Code> = {
   software: Code,
   infrastructure: Server,
   electronics: Cpu,
@@ -30,8 +29,8 @@ const categoryIcons: Record<ProgramCategory, typeof Code> = {
   creative: Palette,
 };
 
-export function ProgramCard({ program }: ProgramCardProps) {
-  const Icon = categoryIcons[program.category];
+export function OpportunityCard({ Opportunity }: OpportunitYCardProps) {
+  const Icon = categoryIcons[Opportunity.category];
 
   const levelColors = {
     Foundation: "text-green-600",
@@ -40,12 +39,15 @@ export function ProgramCard({ program }: ProgramCardProps) {
   };
 
   return (
-    <Link href={`/programs/${program.id}`} className="block h-full group">
+    <Link
+      href={`/OpportunitYs/${Opportunity.id}`}
+      className="block h-full group"
+    >
       <div className="h-full bg-white rounded-lg border border-gray-200 hover:border-primary/40 hover:shadow-md transition-all duration-200 flex flex-col">
         {/* Header */}
         <div className="flex items-start justify-between gap-3 px-5 pt-5">
           <div
-            className={`w-11 h-11 rounded-xl bg-gradient-to-br ${categoryColors[program.category]} flex items-center justify-center flex-shrink-0`}
+            className={`w-11 h-11 rounded-xl bg-gradient-to-br ${categoryColors[Opportunity.category]} flex items-center justify-center flex-shrink-0`}
           >
             <Icon className="w-5 h-5 text-white" />
           </div>
@@ -58,7 +60,7 @@ export function ProgramCard({ program }: ProgramCardProps) {
         <div className="px-5 pt-4 pb-5 flex flex-col flex-1">
           {/* Title */}
           <h3 className="text-base font-semibold text-gray-900 leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors tracking-[-0.01em]">
-            {program.title}
+            {Opportunity.title}
           </h3>
 
           {/* Company + Location */}
@@ -75,35 +77,35 @@ export function ProgramCard({ program }: ProgramCardProps) {
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 mb-4">
             <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">
               <Clock className="w-3.5 h-3.5 text-gray-400" />
-              {program.duration}
+              {Opportunity.duration}
             </span>
             <span
               className={`inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-md ${
-                program.level === "Foundation"
+                Opportunity.level === "Foundation"
                   ? "bg-green-50 text-green-700"
-                  : program.level === "Intermediate"
+                  : Opportunity.level === "Intermediate"
                     ? "bg-amber-50 text-amber-700"
                     : "bg-red-50 text-red-700"
               }`}
             >
-              {program.level}
+              {Opportunity.level}
             </span>
             <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-md">
               <Briefcase className="w-3.5 h-3.5 text-gray-400" />
               <span className="truncate max-w-[120px]">
-                {categoryLabels[program.category]}
+                {categoryLabels[Opportunity.category]}
               </span>
             </span>
           </div>
 
           {/* Description */}
           <p className="text-[13px] leading-relaxed text-gray-500 mb-4 line-clamp-2 flex-1">
-            {program.shortDescription}
+            {Opportunity.shortDescription}
           </p>
 
           {/* Skills */}
           <div className="flex flex-wrap gap-1.5">
-            {program.skills.slice(0, 3).map((skill) => (
+            {Opportunity.skills.slice(0, 3).map((skill) => (
               <span
                 key={skill}
                 className="text-[11px] text-gray-600 bg-gray-50 border border-gray-200/80 px-2.5 py-1 rounded-md font-medium"
@@ -111,9 +113,9 @@ export function ProgramCard({ program }: ProgramCardProps) {
                 {skill}
               </span>
             ))}
-            {program.skills.length > 3 && (
+            {Opportunity.skills.length > 3 && (
               <span className="text-[11px] text-gray-400 px-1.5 py-1 font-medium">
-                +{program.skills.length - 3}
+                +{Opportunity.skills.length - 3}
               </span>
             )}
           </div>

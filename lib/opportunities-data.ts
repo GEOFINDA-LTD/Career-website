@@ -1,9 +1,9 @@
-export type ProgramCategory = 'software' | 'infrastructure' | 'electronics' | 'ai' | 'creative'
+export type OpportunitiesCategory = 'software' | 'infrastructure' | 'electronics' | 'ai' | 'creative'
 
-export interface Program {
+export interface Opportunity {
   id: string
   title: string
-  category: ProgramCategory
+  category: OpportunitiesCategory
   description: string
   shortDescription: string
   duration: string
@@ -16,7 +16,7 @@ export interface Program {
   image: string
 }
 
-export const categoryLabels: Record<ProgramCategory, string> = {
+export const categoryLabels: Record<OpportunitiesCategory, string> = {
   software: 'Core Software & Engineering',
   infrastructure: 'Infrastructure & Systems',
   electronics: 'Electronics & Embedded Systems',
@@ -24,7 +24,7 @@ export const categoryLabels: Record<ProgramCategory, string> = {
   creative: 'Creative & Digital Technology',
 }
 
-export const categoryDescriptions: Record<ProgramCategory, string> = {
+export const categoryDescriptions: Record<OpportunitiesCategory, string> = {
   software:
     'Build production-grade software across the full stack — from frontend interfaces to backend systems, APIs, and databases.',
   infrastructure:
@@ -37,7 +37,7 @@ export const categoryDescriptions: Record<ProgramCategory, string> = {
     'Craft compelling digital experiences — from graphic design and multimedia production to UI/UX, product design, and motion graphics.',
 }
 
-export const categoryColors: Record<ProgramCategory, string> = {
+export const categoryColors: Record<OpportunitiesCategory, string> = {
   software: 'from-[#4CC3E0] to-[#0F6FA3]',
   infrastructure: 'from-[#1E9BD1] to-[#0C5876]',
   electronics: 'from-[#61BA49] to-[#0E6B2E]',
@@ -45,7 +45,7 @@ export const categoryColors: Record<ProgramCategory, string> = {
   creative: 'from-[#A6D93A] to-[#1E9BD1]',
 }
 
-export const programs: Program[] = [
+export const opportunities: Opportunity[] = [
   // ── Core Software & Engineering ──────────────────────────────
   {
     id: 'software-engineering',
@@ -69,7 +69,7 @@ export const programs: Program[] = [
       'End-to-end project delivery with documentation',
     ],
     candidateProfile: ['Analytical thinking', 'Basic programming knowledge', 'Passion for building reliable systems'],
-    image: '/images/programs/software-engineering.jpg',
+    image: '/images/opportunities/software-engineering.jpg',
   },
   {
     id: 'software-development',
@@ -89,18 +89,18 @@ export const programs: Program[] = [
     ],
     projectExposure: [
       'Multi-language coding challenges',
-      'Pair programming sessions',
+      'Pair opportunitiesming sessions',
       'Individual project builds from specification to delivery',
     ],
     candidateProfile: ['Curiosity about how software works', 'Problem-solving mindset', 'Willingness to learn multiple languages'],
-    image: '/images/programs/software-development.jpg',
+    image: '/images/opportunitiess/software-development.jpg',
   },
   {
-    id: 'programming',
-    title: 'Programming',
+    id: 'opportunitiesming',
+    title: 'opportunitiesming',
     category: 'software',
     description:
-      'Build a rock-solid programming foundation. Learn to think algorithmically, write efficient code, and solve problems using core programming concepts — from data structures to control flow and functions.',
+      'Build a rock-solid opportunitiesming foundation. Learn to think algorithmically, write efficient code, and solve problems using core opportunitiesming concepts — from data structures to control flow and functions.',
     shortDescription: 'Build a rock-solid foundation with algorithms, data structures, and problem solving.',
     duration: '8 weeks',
     level: 'Foundation',
@@ -117,7 +117,7 @@ export const programs: Program[] = [
       'Problem-solving marathons',
     ],
     candidateProfile: ['Logical thinker', 'No prior experience required', 'Eagerness to learn'],
-    image: '/images/programs/programming.jpg',
+    image: '/images/opportunitiess/opportunitiesming.jpg',
   },
   {
     id: 'web-engineering',
@@ -141,7 +141,7 @@ export const programs: Program[] = [
       'Production deployment workflows',
     ],
     candidateProfile: ['Basic HTML/CSS knowledge', 'Interest in web technologies', 'Engineering mindset'],
-    image: '/images/programs/web-engineering.jpg',
+    image: '/images/opportunitiess/web-engineering.jpg',
   },
   {
     id: 'backend-systems',
@@ -164,8 +164,8 @@ export const programs: Program[] = [
       'Microservice architecture simulations',
       'Load testing and optimization exercises',
     ],
-    candidateProfile: ['Programming fundamentals', 'Interest in backend logic', 'Systems thinking'],
-    image: '/images/programs/backend-systems.jpg',
+    candidateProfile: ['opportunitiesming fundamentals', 'Interest in backend logic', 'Systems thinking'],
+    image: '/images/opportunitiess/backend-systems.jpg',
   },
   {
     id: 'frontend-engineering',
@@ -189,7 +189,7 @@ export const programs: Program[] = [
       'Accessibility audit and remediation',
     ],
     candidateProfile: ['HTML/CSS foundation', 'Eye for detail', 'Interest in user experience'],
-    image: '/images/programs/frontend-engineering.jpg',
+    image: '/images/opportunitiess/frontend-engineering.jpg',
   },
   {
     id: 'full-stack-development',
@@ -212,8 +212,8 @@ export const programs: Program[] = [
       'Cross-functional team collaboration',
       'Production deployment and monitoring',
     ],
-    candidateProfile: ['Basic programming experience', 'Interest in building complete products', 'Self-driven learner'],
-    image: '/images/programs/full-stack-development.jpg',
+    candidateProfile: ['Basic opportunitiesming experience', 'Interest in building complete products', 'Self-driven learner'],
+    image: '/images/opportunitiess/full-stack-development.jpg',
   },
   {
     id: 'api-architecture',
@@ -237,7 +237,7 @@ export const programs: Program[] = [
       'Developer experience optimization',
     ],
     candidateProfile: ['Backend experience', 'Understanding of HTTP protocols', 'Systematic thinker'],
-    image: '/images/programs/api-architecture.jpg',
+    image: '/images/opportunitiess/api-architecture.jpg',
   },
   {
     id: 'database-systems',
@@ -260,8 +260,8 @@ export const programs: Program[] = [
       'Query performance tuning challenges',
       'Migration and versioning projects',
     ],
-    candidateProfile: ['Basic programming knowledge', 'Logical thinking', 'Interest in data management'],
-    image: '/images/programs/database-systems.jpg',
+    candidateProfile: ['Basic opportunitiesming knowledge', 'Logical thinking', 'Interest in data management'],
+    image: '/images/opportunitiess/database-systems.jpg',
   },
   {
     id: 'systems-design',
@@ -285,7 +285,7 @@ export const programs: Program[] = [
       'Scaling simulation projects',
     ],
     candidateProfile: ['Software development experience', 'Big-picture thinking', 'Interest in architecture'],
-    image: '/images/programs/systems-design.jpg',
+    image: '/images/opportunitiess/systems-design.jpg',
   },
 
   // ── Infrastructure & Systems ─────────────────────────────────
@@ -294,24 +294,24 @@ export const programs: Program[] = [
     title: 'Computer Systems Engineering',
     category: 'infrastructure',
     description:
-      'Understand how computers work from the ground up — hardware, operating systems, memory management, and system-level programming. Build the foundation for infrastructure and systems roles.',
-    shortDescription: 'Understand computers from the ground up — hardware, OS, memory, and system programming.',
+      'Understand how computers work from the ground up — hardware, operating systems, memory management, and system-level opportunitiesming. Build the foundation for infrastructure and systems roles.',
+    shortDescription: 'Understand computers from the ground up — hardware, OS, memory, and system opportunitiesming.',
     duration: '12 weeks',
     level: 'Intermediate',
-    skills: ['Computer Architecture', 'Memory Management', 'System Programming', 'Process Management', 'I/O Systems'],
+    skills: ['Computer Architecture', 'Memory Management', 'System opportunitiesming', 'Process Management', 'I/O Systems'],
     tools: ['Linux', 'C', 'Assembly', 'GDB', 'Virtual Machines'],
     outcomes: [
       'Understand hardware-software interaction',
-      'Write system-level programs',
+      'Write system-level opportunitiess',
       'Debug and optimize at the systems level',
     ],
     projectExposure: [
-      'Low-level programming exercises',
+      'Low-level opportunitiesming exercises',
       'OS component simulations',
       'System performance profiling',
     ],
-    candidateProfile: ['Curiosity about how computers work', 'Basic programming skills', 'Detail-oriented'],
-    image: '/images/programs/computer-systems.jpg',
+    candidateProfile: ['Curiosity about how computers work', 'Basic opportunitiesming skills', 'Detail-oriented'],
+    image: '/images/opportunitiess/computer-systems.jpg',
   },
   {
     id: 'networking-security',
@@ -335,7 +335,7 @@ export const programs: Program[] = [
       'Incident response drills',
     ],
     candidateProfile: ['Interest in networking', 'Problem-solving skills', 'Attention to detail'],
-    image: '/images/programs/networking-security.jpg',
+    image: '/images/opportunitiess/networking-security.jpg',
   },
   {
     id: 'cloud-computing',
@@ -359,7 +359,7 @@ export const programs: Program[] = [
       'Multi-region deployment exercises',
     ],
     candidateProfile: ['Basic Linux knowledge', 'Understanding of web applications', 'Interest in infrastructure'],
-    image: '/images/programs/cloud-computing.jpg',
+    image: '/images/opportunitiess/cloud-computing.jpg',
   },
   {
     id: 'devops-fundamentals',
@@ -382,8 +382,8 @@ export const programs: Program[] = [
       'Infrastructure automation exercises',
       'On-call simulation and incident response',
     ],
-    candidateProfile: ['Programming experience', 'Linux comfort', 'Interest in automation'],
-    image: '/images/programs/devops.jpg',
+    candidateProfile: ['opportunitiesming experience', 'Linux comfort', 'Interest in automation'],
+    image: '/images/opportunitiess/devops.jpg',
   },
   {
     id: 'cybersecurity',
@@ -407,7 +407,7 @@ export const programs: Program[] = [
       'Hardening lab exercises',
     ],
     candidateProfile: ['Networking fundamentals', 'Analytical mindset', 'Interest in security'],
-    image: '/images/programs/cybersecurity.jpg',
+    image: '/images/opportunitiess/cybersecurity.jpg',
   },
   {
     id: 'operating-systems',
@@ -422,7 +422,7 @@ export const programs: Program[] = [
     tools: ['Linux', 'C', 'VirtualBox', 'strace', 'GDB'],
     outcomes: [
       'Understand OS internals and resource management',
-      'Write concurrent programs safely',
+      'Write concurrent opportunitiess safely',
       'Debug system-level issues',
     ],
     projectExposure: [
@@ -430,8 +430,8 @@ export const programs: Program[] = [
       'Concurrency and synchronization exercises',
       'System call tracing and analysis',
     ],
-    candidateProfile: ['C programming experience', 'Systems curiosity', 'Threading and process concepts'],
-    image: '/images/programs/operating-systems.jpg',
+    candidateProfile: ['C opportunitiesming experience', 'Systems curiosity', 'Threading and process concepts'],
+    image: '/images/opportunitiess/operating-systems.jpg',
   },
   {
     id: 'it-infrastructure',
@@ -455,7 +455,7 @@ export const programs: Program[] = [
       'IT service desk simulation',
     ],
     candidateProfile: ['Basic computer literacy', 'Organizational skills', 'Interest in IT operations'],
-    image: '/images/programs/it-infrastructure.jpg',
+    image: '/images/opportunitiess/it-infrastructure.jpg',
   },
 
   // ── Electronics & Embedded Systems ───────────────────────────
@@ -481,15 +481,15 @@ export const programs: Program[] = [
       'Electronics testing and measurement labs',
     ],
     candidateProfile: ['Interest in electronics', 'Hands-on learner', 'Basic physics understanding'],
-    image: '/images/programs/electronics-engineering.jpg',
+    image: '/images/opportunitiess/electronics-engineering.jpg',
   },
   {
     id: 'embedded-systems',
     title: 'Embedded Systems',
     category: 'electronics',
     description:
-      'Program the brains of physical devices. Learn embedded C/C++, real-time operating systems, and firmware development for resource-constrained systems that power everything from appliances to vehicles.',
-    shortDescription: 'Program physical devices — embedded C/C++, RTOS, and firmware development.',
+      'opportunities the brains of physical devices. Learn embedded C/C++, real-time operating systems, and firmware development for resource-constrained systems that power everything from appliances to vehicles.',
+    shortDescription: 'opportunities physical devices — embedded C/C++, RTOS, and firmware development.',
     duration: '12 weeks',
     level: 'Intermediate',
     skills: ['Embedded C/C++', 'RTOS', 'Firmware Development', 'Low-Level Debugging', 'Real-Time Systems'],
@@ -504,22 +504,22 @@ export const programs: Program[] = [
       'RTOS application projects',
       'Hardware-software integration testing',
     ],
-    candidateProfile: ['C programming knowledge', 'Interest in hardware', 'Patient debugger'],
-    image: '/images/programs/embedded-systems.jpg',
+    candidateProfile: ['C opportunitiesming knowledge', 'Interest in hardware', 'Patient debugger'],
+    image: '/images/opportunitiess/embedded-systems.jpg',
   },
   {
     id: 'microcontrollers',
     title: 'Microcontrollers',
     category: 'electronics',
     description:
-      'Master microcontroller programming and interfacing. Work with Arduino, ESP32, and professional MCU platforms to build interactive devices that sense, process, and respond to the physical world.',
-    shortDescription: 'Program Arduino, ESP32, and MCU platforms to build interactive physical devices.',
+      'Master microcontroller opportunitiesming and interfacing. Work with Arduino, ESP32, and professional MCU platforms to build interactive devices that sense, process, and respond to the physical world.',
+    shortDescription: 'opportunities Arduino, ESP32, and MCU platforms to build interactive physical devices.',
     duration: '10 weeks',
     level: 'Foundation',
-    skills: ['MCU Programming', 'Peripheral Interfacing', 'Communication Protocols', 'Power Management', 'Prototyping'],
+    skills: ['MCU opportunitiesming', 'Peripheral Interfacing', 'Communication Protocols', 'Power Management', 'Prototyping'],
     tools: ['Arduino', 'ESP32', 'PlatformIO', 'Serial Monitor', 'Logic Analyzer'],
     outcomes: [
-      'Program microcontrollers for real-world tasks',
+      'opportunities microcontrollers for real-world tasks',
       'Interface with sensors, motors, and displays',
       'Implement communication protocols (I2C, SPI, UART)',
     ],
@@ -528,8 +528,8 @@ export const programs: Program[] = [
       'Wireless communication projects',
       'Rapid prototyping challenges',
     ],
-    candidateProfile: ['Basic programming concepts', 'Hands-on curiosity', 'Interest in building physical things'],
-    image: '/images/programs/microcontrollers.jpg',
+    candidateProfile: ['Basic opportunitiesming concepts', 'Hands-on curiosity', 'Interest in building physical things'],
+    image: '/images/opportunitiess/microcontrollers.jpg',
   },
   {
     id: 'iot',
@@ -553,7 +553,7 @@ export const programs: Program[] = [
       'Edge computing prototypes',
     ],
     candidateProfile: ['Microcontroller experience helpful', 'Interest in connected devices', 'Systems thinker'],
-    image: '/images/programs/iot.jpg',
+    image: '/images/opportunitiess/iot.jpg',
   },
   {
     id: 'hardware-software-integration',
@@ -576,8 +576,8 @@ export const programs: Program[] = [
       'Full system integration builds',
       'Cross-team hardware-software collaboration',
     ],
-    candidateProfile: ['Electronics and programming experience', 'Debugging persistence', 'Integration mindset'],
-    image: '/images/programs/hardware-software.jpg',
+    candidateProfile: ['Electronics and opportunitiesming experience', 'Debugging persistence', 'Integration mindset'],
+    image: '/images/opportunitiess/hardware-software.jpg',
   },
   {
     id: 'sensor-systems',
@@ -601,7 +601,7 @@ export const programs: Program[] = [
       'Multi-sensor fusion projects',
     ],
     candidateProfile: ['Basic electronics knowledge', 'Interest in measurement', 'Data-oriented thinking'],
-    image: '/images/programs/sensor-systems.jpg',
+    image: '/images/opportunitiess/sensor-systems.jpg',
   },
 
   // ── AI & Emerging Technologies ───────────────────────────────
@@ -626,8 +626,8 @@ export const programs: Program[] = [
       'Problem-solving with AI approaches',
       'Mini expert system builds',
     ],
-    candidateProfile: ['Basic programming skills', 'Interest in AI', 'Mathematical curiosity'],
-    image: '/images/programs/ai-foundations.jpg',
+    candidateProfile: ['Basic opportunitiesming skills', 'Interest in AI', 'Mathematical curiosity'],
+    image: '/images/opportunitiess/ai-foundations.jpg',
   },
   {
     id: 'machine-learning-basics',
@@ -651,7 +651,7 @@ export const programs: Program[] = [
       'Data preprocessing and feature engineering exercises',
     ],
     candidateProfile: ['Python proficiency', 'Basic statistics knowledge', 'Data curiosity'],
-    image: '/images/programs/machine-learning.jpg',
+    image: '/images/opportunitiess/machine-learning.jpg',
   },
   {
     id: 'data-science-fundamentals',
@@ -674,8 +674,8 @@ export const programs: Program[] = [
       'Data storytelling presentations',
       'Real-world dataset challenges',
     ],
-    candidateProfile: ['Basic programming awareness', 'Curiosity about data', 'Communication skills'],
-    image: '/images/programs/data-science.jpg',
+    candidateProfile: ['Basic opportunitiesming awareness', 'Curiosity about data', 'Communication skills'],
+    image: '/images/opportunitiess/data-science.jpg',
   },
   {
     id: 'automation-systems',
@@ -699,21 +699,21 @@ export const programs: Program[] = [
       'System integration exercises',
     ],
     candidateProfile: ['Basic scripting ability', 'Process-oriented thinking', 'Efficiency-driven mindset'],
-    image: '/images/programs/automation.jpg',
+    image: '/images/opportunitiess/automation.jpg',
   },
   {
     id: 'robotics-concepts',
     title: 'Robotics Concepts',
     category: 'ai',
     description:
-      'Explore the intersection of AI, electronics, and mechanical systems. Learn robot kinematics, sensor fusion, actuator control, and programming — building robots that perceive and act in the physical world.',
+      'Explore the intersection of AI, electronics, and mechanical systems. Learn robot kinematics, sensor fusion, actuator control, and opportunitiesming — building robots that perceive and act in the physical world.',
     shortDescription: 'Build robots that perceive and act — kinematics, sensors, and actuator control.',
     duration: '12 weeks',
     level: 'Intermediate',
-    skills: ['Robot Kinematics', 'Sensor Fusion', 'Actuator Control', 'Path Planning', 'Robot Programming'],
+    skills: ['Robot Kinematics', 'Sensor Fusion', 'Actuator Control', 'Path Planning', 'Robot opportunitiesming'],
     tools: ['Arduino', 'ROS (Robot Operating System)', 'Python', 'Servo Motors', '3D Printing'],
     outcomes: [
-      'Build and program functional robots',
+      'Build and opportunities functional robots',
       'Implement sensor-based navigation',
       'Design control systems for robotic actuators',
     ],
@@ -722,8 +722,8 @@ export const programs: Program[] = [
       'Obstacle avoidance systems',
       'Multi-sensor robot integration',
     ],
-    candidateProfile: ['Programming and electronics basics', 'Hands-on builder', 'Interest in robotics'],
-    image: '/images/programs/robotics.jpg',
+    candidateProfile: ['opportunitiesming and electronics basics', 'Hands-on builder', 'Interest in robotics'],
+    image: '/images/opportunitiess/robotics.jpg',
   },
   {
     id: 'blockchain-foundations',
@@ -746,8 +746,8 @@ export const programs: Program[] = [
       'Decentralized application prototypes',
       'Blockchain architecture analysis',
     ],
-    candidateProfile: ['Programming experience', 'Interest in decentralization', 'Analytical thinking'],
-    image: '/images/programs/blockchain.jpg',
+    candidateProfile: ['opportunitiesming experience', 'Interest in decentralization', 'Analytical thinking'],
+    image: '/images/opportunitiess/blockchain.jpg',
   },
   {
     id: 'mobile-application-development',
@@ -771,7 +771,7 @@ export const programs: Program[] = [
       'App store submission workflow',
     ],
     candidateProfile: ['JavaScript/React knowledge helpful', 'Interest in mobile', 'Design sensitivity'],
-    image: '/images/programs/mobile-development.jpg',
+    image: '/images/opportunitiess/mobile-development.jpg',
   },
 
   // ── Creative & Digital Technology ────────────────────────────
@@ -797,7 +797,7 @@ export const programs: Program[] = [
       'Design critique and iteration sessions',
     ],
     candidateProfile: ['Visual creativity', 'Attention to detail', 'Interest in communication through design'],
-    image: '/images/programs/graphic-design.jpg',
+    image: '/images/opportunitiess/graphic-design.jpg',
   },
   {
     id: 'multimedia-production',
@@ -821,7 +821,7 @@ export const programs: Program[] = [
       'Social media content campaigns',
     ],
     candidateProfile: ['Creative storyteller', 'Interest in media', 'No prior experience required'],
-    image: '/images/programs/multimedia.jpg',
+    image: '/images/opportunitiess/multimedia.jpg',
   },
   {
     id: 'ui-ux-design',
@@ -845,7 +845,7 @@ export const programs: Program[] = [
       'Design system creation projects',
     ],
     candidateProfile: ['Empathy for users', 'Visual thinking', 'Interest in how people interact with technology'],
-    image: '/images/programs/ui-ux-design.jpg',
+    image: '/images/opportunitiess/ui-ux-design.jpg',
   },
   {
     id: 'digital-product-design',
@@ -869,7 +869,7 @@ export const programs: Program[] = [
       'Product analytics and iteration projects',
     ],
     candidateProfile: ['Design foundation helpful', 'Strategic thinker', 'Interest in product development'],
-    image: '/images/programs/digital-product-design.jpg',
+    image: '/images/opportunitiess/digital-product-design.jpg',
   },
   {
     id: 'motion-graphics',
@@ -893,6 +893,6 @@ export const programs: Program[] = [
       'Animated explainer video production',
     ],
     candidateProfile: ['Design or video editing background helpful', 'Interest in animation', 'Creative experimentation'],
-    image: '/images/programs/motion-graphics.jpg',
+    image: '/images/opportunitiess/motion-graphics.jpg',
   },
 ]

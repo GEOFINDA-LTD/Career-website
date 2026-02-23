@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { programs } from "@/lib/programs-data";
+import { opportunities } from "@/lib/opportunities-data";
 import Link from "next/link";
 
 export default function ApplyPage() {
@@ -273,7 +273,7 @@ export default function ApplyPage() {
                     }`}
                   >
                     <option value="">Select an opportunity...</option>
-                    {programs.map((prog) => (
+                    {opportunities.map((prog) => (
                       <option key={prog.id} value={prog.id}>
                         {prog.title}
                       </option>
