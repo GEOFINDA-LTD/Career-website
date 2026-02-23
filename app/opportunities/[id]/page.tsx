@@ -2,10 +2,10 @@
 
 import { use } from "react";
 import {
-  programs,
+  opportunities,
   categoryLabels,
   categoryColors,
-  type ProgramCategory,
+  type OpportunitiesCategory,
 } from "@/lib/opportunities-data";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,7 +26,7 @@ import {
   Brain,
   Palette,
 } from "lucide-react";
-import { ProgramCard } from "@/components/Opportunity-card";
+import { OpportunityCard } from "@/components/Opportunity-card";
 
 interface PageProps {
   params: Promise<{
@@ -34,7 +34,7 @@ interface PageProps {
   }>;
 }
 
-const categoryIcons: Record<ProgramCategory, typeof Code> = {
+const categoryIcons: Record<OpportunitiesCategory, typeof Code> = {
   software: Code,
   infrastructure: Server,
   electronics: Cpu,
@@ -44,7 +44,7 @@ const categoryIcons: Record<ProgramCategory, typeof Code> = {
 
 export default function ProgramDetailPage({ params }: PageProps) {
   const { id } = use(params);
-  const program = programs.find((p) => p.id === id);
+  const program = opportunities.find((p) => p.id === id);
 
   if (!program) {
     notFound();
@@ -58,7 +58,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
     Advanced: "bg-red-50 text-red-700 border-red-200",
   };
 
-  const relatedTracks = programs
+  const relatedTracks = opportunities
     .filter((p) => p.category === program.category && p.id !== program.id)
     .slice(0, 3);
 
@@ -70,7 +70,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <nav className="flex items-center gap-1.5 text-sm text-gray-500">
               <Link
-                href="/programs"
+                href="/opportunities"
                 className="hover:text-primary transition-colors font-medium"
               >
                 Career Opportunities
@@ -342,7 +342,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
 
                 {/* Back to tracks */}
                 <Link
-                  href="/programs"
+                  href="/opportunities"
                   className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors font-medium"
                 >
                   <ArrowLeft className="w-4 h-4" />
@@ -362,7 +362,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
                   Other Positions in {categoryLabels[program.category]}
                 </h2>
                 <Link
-                  href="/programs"
+                  href="/opportunities"
                   className="text-sm text-primary font-medium hover:underline hidden sm:inline-flex items-center gap-1"
                 >
                   View all
@@ -371,7 +371,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {relatedTracks.map((related) => (
-                  <ProgramCard key={related.id} program={related} />
+                  <OpportunityCard key={related.id} Opportunity={related} />
                 ))}
               </div>
             </div>

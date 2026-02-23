@@ -40,7 +40,7 @@ export function OpportunityCard({ Opportunity }: OpportunitYCardProps) {
 
   return (
     <Link
-      href={`/OpportunitYs/${Opportunity.id}`}
+      href={`/opportunities/${Opportunity.id}`}
       className="block h-full group"
     >
       <div className="h-full bg-white rounded-lg border border-gray-200 hover:border-primary/40 hover:shadow-md transition-all duration-200 flex flex-col">
