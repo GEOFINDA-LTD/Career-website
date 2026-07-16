@@ -1,0 +1,24 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "feat/redesign",
+    "fx/rearrange",
+    "main",
+    "origin",
+    "security/auto-clean"
+  ],
+  "parent": {
+    "feat/redesign": "main",
+    "fx/rearrange": "main",
+    "main": null,
+    "origin": "main",
+    "security/auto-clean": "main"
+  },
+  "order": [
+    "main",
+    "feat/redesign",
+    "fx/rearrange",
+    "origin",
+    "security/auto-clean"
+  ]
+}
